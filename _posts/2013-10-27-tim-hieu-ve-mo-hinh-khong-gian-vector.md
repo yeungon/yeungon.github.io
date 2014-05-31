@@ -17,7 +17,7 @@ Mỗi từ trong không gian vector sẽ có một trọng số, có nhiều ph�
 
 Mặc dù đơn giản, nhưng mô hình không gian vector và những biến thể của nó hiện nay vẫn là cách phổ biến để biểu diễn văn bản trong Data mining và Information retrieval. Tuy nhiên, một trong những điểm yếu của vector space model số chiều lớn (high-dimensonal), có khoảng cỡ chục triệu chiều trong không gian vector nếu như chúng ta áp dụng nó vào web search engine.
 
-![Hình minh họa của Christian S. Perone]({% asset_path vector_space.png %})
+![Hình minh họa của Christian S. Perone](/assets/posts/tim-hieu-ve-mo-hinh-khong-gian-vector/vector_space.png)
 Hình minh họa của [Christian S. Perone](https://plus.google.com/118258566074039785562/posts)
 
 ### Thể hiện văn bản như vector và term frequency
@@ -126,7 +126,7 @@ Collection frequency của từ t là số lần xuất hiện của t trong t�
 
 Khoảng cách Euclid giữa $$\vec q$$  và $$\vec d$$ 2 là rất lớn ngay cả khi sự phân phối  của các từ trong query q và trong tài liệu d2 là rất giống nhau.
 
-![Khoảng cách Euclid]({% asset_path distance.png %})
+![Khoảng cách Euclid](/assets/posts/tim-hieu-ve-mo-hinh-khong-gian-vector/distance.png)
 
 Nhìn hình trên ta có thể thấy khoảng cách giữa $$\vec q$$  và $$\vec d$$ 2 là khá lớn mặc dù sự phân bố các terms trong query q và document d2 khá tương đồng.
 
@@ -134,13 +134,13 @@ Do vậy chúng ta sẽ dựa vào GÓC trong không gian vector hơn là khoả
 
 ### Sử dụng góc thay vì khoảng cách
 
-![Sử dụng góc]({% asset_path angle.png %})
+![Sử dụng góc](/assets/posts/tim-hieu-ve-mo-hinh-khong-gian-vector/angle.png)
 
 Qua thực nghiệm, lấy một tài liệu d và gắn vào chính nó, ta có tài liệu d’ . Về mặt ngữ nghĩa thì hai tài liệu này hoàn toàn giống nhau về nội dung. Khi đó vector d’ sẽ có độ lớn gấp đôi vector d và có cùng chiều với d.
 
 Nhưng khoảng cách Euclid giữa hai tài liệu này khá lớn, mặc dù giống nhau về nội dung.
 
-![Khoảng cách euclid]({% asset_path euclidean_distance.png %})
+![Khoảng cách euclid](/assets/posts/tim-hieu-ve-mo-hinh-khong-gian-vector/euclidean_distance.png)
 
 Cho nên, thay vì xếp hạng tài liệu dựa trên khoảng cách Euclid, thì chúng ta nên xếp hạng dựa trên góc giữa tài liệu và câu truy vấn.
 
@@ -151,7 +151,7 @@ Có hai cách ghi tương đương nhau:
 * Xếp hạng tài liệu theo thứ tự giảm dần dựa trên góc giữa query và document
 * Xếp hạng tài liệu theo thứ tự tăng dần dựa trên cosin của query và document
 
-![Cos curve]({% asset_path cos_curve.jpg %})
+![Cos curve](/assets/posts/tim-hieu-ve-mo-hinh-khong-gian-vector/cos_curve.jpg)
 
 Tài liệu được xếp hạng bởi giá trị cosine giảm dần: 
 
@@ -174,7 +174,7 @@ Giả sử chúng ta có vector d' $$\left[\begin{matrix} 6 \\ 8 \end{matrix}\ri
 
 Chia một vector cho định mức L2 của nó sẽ tạo ra một vector đơn vị chiều dài [(unit length vector)](http://en.wikipedia.org/wiki/Unit_vector)
 
-![Khoảng cách euclid]({% asset_path euclidean_distance.png %})
+![Khoảng cách euclid](/assets/posts/tim-hieu-ve-mo-hinh-khong-gian-vector/euclidean_distance.png)
 
 Khoảng cách Euclid giữa hai vector là khá lớn (trong khi góc bằng nhau). Sau khi chuẩn hóa hai tài liệu d và d’chúng ta có hai vector hoàn toàn giống nhau  $$\left[\begin{matrix} 0.6 \\ 0.8 \end{matrix}\right]$$. Những tài liệu dài và ngắn bây giờ (sau khi chuẩn hóa) sẽ có trọng số so sánh được.
 
