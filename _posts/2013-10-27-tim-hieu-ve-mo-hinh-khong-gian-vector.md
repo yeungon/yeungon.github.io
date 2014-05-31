@@ -22,7 +22,7 @@ Hình minh họa của [Christian S. Perone](https://plus.google.com/11825856607
 
 ### Thể hiện văn bản như vector và term frequency
 
-Ví dụ:
+**Ví dụ:**
 Hàng đầu tiên là danh sách các vở kịch của Shakespeare. Cột đầu tiên là các từ, và các ô thể hiện sự xuất hiện hay không xuất hiện của các từ đó trong các tác phẩm.
 
 {:.table.table-bordered}
