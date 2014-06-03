@@ -20,7 +20,12 @@ image:
     {% endif %}
   </header>
   <div class="entry-content">
-    {{ post.excerpt }}
+    {% if post.content contains '<!--more-->' %}
+       {{ post.content | split:'<!--more-->' | first }}
+    {% else %}
+        <!-- Case for when no excerpt is defined -->
+        {{ post.excerpt }}
+    {% endif %}
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 {% endfor %}

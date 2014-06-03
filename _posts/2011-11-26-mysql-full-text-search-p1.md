@@ -9,7 +9,7 @@ tags : [mysql, full-text-search]
 
 ## I.  Full text search là gì?
 Nói đơn giản dễ hiểu, full text search (gọi tắt là FTS) là cách tự nhiên nhất để tìm kiếm thông tin, hệt như Google, ta chỉ cần gõ từ khóa và nhấn enter thế là có kết quả trả về. Phạm vi bài viết này chỉ đề cập, giới thiệu sơ lược về FTS trong MySQL mà không bàn về các FTS engine như Sphinx hay Solr.
-
+<!--more-->
 ##II.  Tại sao chúng ta phải dùng Full text search?
 Bình thường, chúng ta sẽ sử dụng câu truy vấn dạng như sau để tìm kiếm dữ liệu:
 

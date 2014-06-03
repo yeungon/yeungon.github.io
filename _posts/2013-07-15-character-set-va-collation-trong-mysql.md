@@ -11,6 +11,8 @@ tags : [mysql, full-text-search]
 
 Một character set là một tập hợp các ký tự và các phương thức chuyển mã ký tự (encoding). Còn một collation là một tập hợp các qui tắc để so sánh hai ký tự trong một tập hợp ký tự. Giả sử ta có 4 chữ cái `A`,`a`,`B`,`b` được encode là `A = 65`,`B = 66`, `a = 97`, `c = 98`. Thì trong máy tính, chữ 'A' là một ký hiệu và 65 là mã của được chuyển của 'A'. Thì sự kết hợp của một tập các ký tự và cách chuyển mã của chúng được gọi là `character set`.
 
+<!--more-->
+
 Bạn có thể thấy mỗi ngôn ngữ khác nhau sẽ có những tập hợp các ký tự khác nhau, cùng là bản chữ cái latin nhưng tiếng Việt lại có thêm nhiều ký tự mà các ngôn ngữ dùng chữ latin khác không có chẳng hạn như chữ  , Ă, Ê, Ô, Ư, Đ. Và có rất nhiều kiểu chuyển mã (encode) tiếng Việt khác nhau ngoài Unicode ra như TCVN3, VNI hay VISCII. Do vậy không thể dùng font VNI mà gõ theo kiểu gõ Unicode được, vì bộ gõ sẽ ánh xạ sai mã và ký tự tương ứng.
 
 

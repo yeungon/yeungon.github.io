@@ -8,7 +8,7 @@ tags : [mysql, full-text-search]
 ---
 
 Tiếp theo phần trước, thì phần này ta sẽ tìm hiểu về cơ chế đánh giá độ phù hợp (relevance) của MySQL và cơ chế Indexing.
-
+<!--more-->
 ### 1.Kiến trúc tổng quát
 Trước tiên, ta hãy xem qua kiến trúc tổng thể của full text search, trong đó bao gồm MySQL, tuy nhiên tùy thuộc vào đặc điểm của mỗi search engine mà nó sẽ khác nhau (ví dụ như MySQL không có stemmer vì vậy khi search 1 từ số nhiều bằng keyword số ít sẽ không ra).
 

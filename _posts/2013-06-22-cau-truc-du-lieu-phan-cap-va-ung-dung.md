@@ -7,8 +7,10 @@ author: hungnq1989
 tags : [data-structure]
 ---
 
-## Giới thiệu
+### Giới thiệu
 Việc lưu trữ dữ liệu dạng phân cấp (hierarchical data structure) rất cần thiết trong một số trường hợp. Ví dụ như menu phân nhiều cấp hay comment hỗ trợ reply lồng nhau. Bài này viết về hai mô hình lưu trữ dữ liệu phân cấp trong database đó là nested sets model và parent-child model.
+
+<!--more-->
 
 Nhìn chung thì nested set model có lợi thế là truy vấn dữ liệu nhanh, nhưng khó khăn trong việc thêm, cập nhật và xóa các nút. Nó chỉ thích hợp với các ứng dụng mà vị trị các nút ít hoặc không thay đổi thường xuyên. Ngược lại, parent-child model được cải tiến thêm thuộc tính path rất dễ áp dụng cho các ứng dụng cần thay đổi vị, thêm mới các nút thường xuyên mà không cần phải quan tâm tới việc cập nhật toàn bộ dữ liệu như nested sets model.
 
