@@ -10,9 +10,10 @@ markdown: kramdown
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Butchiso
+title : Không
 tagline: Site Tagline
 author :
+  avatar: avatar.png
   name : Hung Nguyen
   email : hungnq1989@gmail.com
   github : hungnq1989
