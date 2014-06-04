@@ -6,9 +6,9 @@ categories: mysql  full-text-search
 author: hungnq1989
 tags : [mysql, full-text-search]
 ---
-
 Tiếp theo phần trước, thì phần này ta sẽ tìm hiểu về cơ chế đánh giá độ phù hợp (relevance) của MySQL và cơ chế Indexing.
 <!--more-->
+
 ### 1.Kiến trúc tổng quát
 Trước tiên, ta hãy xem qua kiến trúc tổng thể của full text search, trong đó bao gồm MySQL, tuy nhiên tùy thuộc vào đặc điểm của mỗi search engine mà nó sẽ khác nhau (ví dụ như MySQL không có stemmer vì vậy khi search 1 từ số nhiều bằng keyword số ít sẽ không ra).
 
@@ -46,9 +46,9 @@ Như vậy thì một từ không xuất hiện trong bất kỳ tài liệu nà
 
 Ta có thể hiểu rõ hơn việc này bằng cách xem số điểm mà MySQL được chấm trong Index bằng công cụ `myisam_ftdump` trong mysql\bin (c có nghĩa là count và 1 là chỉ số của full text index(title,body), còn 0 là index của id)
 
-Ta có thể thấy từ khóa MySQL được chấm điểm âm (bé hơn 0!). Bởi vì từ khóa này xuất hiện trong tất cả các records hiện tại mà ta dùng để test. Nếu thử với các từ khóa khác thì sẽ có ít nhất một kết quả trả về. (Lưu ý là mặc định chúng ta tìm bằng NATURAL LANGUAGE MODE, tuy nhiên nếu chuyển sang BOOLEAN MODE thì vẫn có kết quả trả về cho từ khóa MySQL vì trong BOOLEAN MODE thì mặc định engine chỉ tìm xem có hay không từ khóa đó (1-0)).
+Ta có thể thấy từ khóa MySQL được chấm điểm âm (bé hơn 0!). Bởi vì từ khóa này xuất hiện trong tất cả các records hiện tại mà ta dùng để test. Nếu thử với các từ khóa khác thì sẽ có ít nhất một kết quả trả về. (Lưu ý là mặc định chúng ta tìm bằng `NATURAL LANGUAGE MODE`, tuy nhiên nếu chuyển sang `BOOLEAN MODE` thì vẫn có kết quả trả về cho từ khóa MySQL vì trong `BOOLEAN MODE` thì mặc định engine chỉ tìm xem có hay không từ khóa đó (1-0)).
 
-Sau đây, chúng ta sẽ quay trở lại BOOLEAN MODE một chút để tìm hiểu về weight trong chế độ này.
+Sau đây, chúng ta sẽ quay trở lại `BOOLEAN MODE` một chút để tìm hiểu về weight trong chế độ này.
 
 Như chúng ta thấy, kết quả trả về weigth chỉ mang giá trị 0 hoặc 1, tức là có xuất hiện hay không có xuất hiện. Tuy nhiên điểm số sẽ thay tăng hoặc giảm nếu như chúng ta sử dụng các wildcard đã giới thiệu trong phần 2.
 
