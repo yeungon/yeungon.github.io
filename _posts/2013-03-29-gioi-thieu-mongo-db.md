@@ -9,9 +9,9 @@ tags : [mongodb]
 
 ### Giới thiệu 
 
-Thường khi nói về database mọi người sẽ liên tưởng tới RDBMS - cơ sở dữ liệu quan hệ như MS SQL hay MySQL. Bởi vì một số lý do (như khó đảm bảo tính ACID khi dữ liệu nằm rải rác trên nhiều máy vật lý), các hệ cơ sở dữ liệu quan hệ thường khó chạy phân tán vì database phải chắn rằng các dữ liệu liên quan không bị sửa đổi hay xóa ngoài tầm kiểm soát trong một transaction. Điều này cũng dẫn tới các RDBMS khó scale up (**khó** chứ không phải **không thể**), cho nênthường người ta sẽ bổ sung thêm phần cứng thay vì cho nó chạy song song trên nhiều máy chủ.
+Thường khi nói về database mọi người sẽ liên tưởng tới RDBMS - cơ sở dữ liệu quan hệ như MS SQL hay MySQL. Bởi vì một số lý do (như khó đảm bảo tính [ACID](http://en.wikipedia.org/wiki/ACID) khi dữ liệu nằm rải rác trên nhiều máy vật lý), các hệ cơ sở dữ liệu quan hệ thường khó chạy phân tán vì database phải chắn rằng các dữ liệu liên quan không bị sửa đổi hay xóa ngoài tầm kiểm soát trong một transaction. Điều này cũng dẫn tới các RDBMS khó scale up (**khó** chứ không phải **không thể**), cho nênthường người ta sẽ bổ sung thêm phần cứng thay vì cho nó chạy song song trên nhiều máy chủ.
 
-Khái niệm NoSQL được tạo ra vào năm 1998 bởi Carlo Strozzi. Nhiều người nghĩ rằng khái niệm này dùng để hạ thấp SQL nhưng thực ra nó có nghĩa là Not Only SQL. Về mặt ý tưởng thì cả hai (NoSQL và RDMS) sẽ sống chung và bổ sung cho nhau.
+Khái niệm NoSQL được tạo ra vào năm 1998 bởi [Carlo Strozzi](http://www.strozzi.it/users/carlo/vitae.html). Nhiều người nghĩ rằng khái niệm này dùng để hạ thấp SQL nhưng thực ra nó có nghĩa là Not Only SQL. Về mặt ý tưởng thì cả hai (NoSQL và RDMS) sẽ sống chung và bổ sung cho nhau.
 <!--more-->
 
 NoSQL database được phân ra thành nhiều loại, bao gồm:
@@ -126,7 +126,8 @@ db.createCollection("someCollection",{
 * size là maximum size của capped collection tính bằng byte 
 * max là số phần tử tối đa trong capped collection đó
 
-GridFS
+### GridFS
+
 GridFS giúp lưu trữ những file có kích thước vượt quá giới hạn của BSON-document 16MB trên một document (định dạng lưu trữ trong mongodb BJON = “binary” + “JSON”). Nó chia một file ra nhiều phần nhỏ (parts hoặc chunks).
 
 Mỗi chunks được lưu trữ với dạng:
