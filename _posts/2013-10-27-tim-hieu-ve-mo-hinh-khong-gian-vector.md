@@ -50,13 +50,13 @@ Các ô thể hiện sự số lần xuất hiện của các từ trong các t�
 {:.table.table-bordered}
 |           | Anthony and Cleopatra | Julius Caesar | The Tempest | Hamlet | Othello | Macbeth |
 | --------- | --------------------: | ------------: | ----------: | -----: | ------: | ------: |
-| Anthony   |                     1 |             1 |           0 |      0 |       0 |       1 |
-| Brutus    |                     1 |             1 |           0 |      1 |       0 |       0 |
-| Caesar    |                     1 |             1 |           0 |      1 |       0 |       1 |
-| Calpurnia |                     0 |             1 |           0 |      0 |       1 |       0 |
-| Cleopatra |                     1 |             0 |           0 |      0 |       0 |       0 |
-| Mercy     |                     1 |             0 |           1 |      1 |       1 |       1 |
-| Worser    |                     1 |             0 |           1 |      1 |       1 |       0 |
+| Anthony   |                   157 |            73 |           0 |      0 |       0 |       1 |
+| Brutus    |                     4 |           157 |           0 |      2 |       0 |       0 |
+| Caesar    |                   232 |           227 |           0 |      2 |       0 |       1 |
+| Calpurnia |                     0 |            19 |           0 |      0 |       1 |       0 |
+| Cleopatra |                    57 |             0 |           0 |      0 |       0 |       0 |
+| Mercy     |                     2 |             0 |           3 |      8 |       5 |       8 |
+| Worser    |                     2 |             0 |           1 |      1 |       1 |       0 |
 
 
 Và mỗi tài liệu được biễu diễn dưới dạng một vector, ví dụ Julius Caesar $$\left[\begin{matrix} 73 \\ 157 \\ 227 \\19 \\0 \\0 \\0 \end{matrix}\right]$$
@@ -65,7 +65,7 @@ Bây giờ mỗi tài liệu (trong trường hợp này là tác phẩm) đư�
 
 Term frequency tft,d xác định số lần từ t xuất hiện trong tài liệu d. Nhưng chỉ tần suất xuất hiện của một từ thôi thì chưa đủ.
 
-Ví dụ trong một tài liệu, sự xuất hiện của một từ 10 lần thì tài liệu đó được coi là phù hợp hơn tài liệu mà từ đó chỉ xuất hiện 1 lần. Nhưng không phải là phù hợp hơn tài liệu kia 10 lần. Sự phù hợp không tỷ lệ thuận với số lần xuất hiện của từ đó trong một tài liệu.
+Ví dụ trong một tài liệu, sự xuất hiện của một từ 10 lần thì tài liệu đó được coi là phù hợp hơn tài liệu mà từ đó chỉ xuất hiện 1 lần. Nhưng không phải là phù hợp hơn tài liệu kia 10 lần. Sự phù hợp __không__ tỷ lệ thuận với số lần xuất hiện của từ đó trong một tài liệu.
 
 ## Phương pháp tính trọng số tần suất logarit (log-frequency)
 

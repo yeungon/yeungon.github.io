@@ -72,11 +72,11 @@ Sau đó, dựa vào right của D = 7 ta có thể biết giá trị right củ
 Giá trị các nút bị thay đổi như sau:
 
 
-* D(2,5) --> D(2,7)
-* E(6,7) --> E(8,9)
-* B(1,8) --> B(1,10)
-* C(9,12) --> C(11,14)
-* F(10,11) --> F(12,13)
+* D(2,5) → D(2,7)
+* E(6,7) → E(8,9)
+* B(1,8) → B(1,10)
+* C(9,12) → C(11,14)
+* F(10,11) → F(12,13)
 
 
 ### Làm thế nào để xóa một nút?
@@ -104,18 +104,18 @@ UPDATE category SET right=right-4 WHERE right>=2 and right<=5
 
 Sau khi update các nút sẽ thay đổi như sau, ta thấy giá trị thay đổi là 4:
 
-* A(0-13) --> A(0,9)
-* B(1-8)   --> B(1,4)
-* E(6,7) --> E(2,3)
-* C(9,12)-->C(5,8)
-* F(10,11)-->F(6,7)
+* A(0-13) → A(0,9)
+* B(1-8) → B(1,4)
+* E(6,7) → E(2,3)
+* C(9,12) → C(5,8)
+* F(10,11) → F(6,7)
 
 
 ### Làm thế nào để dời một nhánh?
 
 Ta phải làm hai thao tác. Một là xóa tất cả các nút trong nhánh đó và tái tạo lại các nút đó ở vị trí mong muốn. Cách này chi phí cao, ví giả sử ta xóa một nhánh có 4 nút thì ta phải xóa 4 records trong database và thêm mới 4 records.
 
-Cách thứ hai ...(chưa test nên chưa viết :P)
+Cách thứ hai: (chưa test nên chưa viết :P)
 
 ## Parent-child model (adjacency list model)
 
@@ -156,7 +156,10 @@ Cải tiến dữ liệu đi một chút thì vấn đề trên được giải 
 |  11 | Sun Dresses  | 7         | 1-3-7-11- |
 
 .Như vậy muốn cần truy vấn một tập hợp các nút thuộc về một nút, ví dụ lấy tất cả các nút thuộc về nút Men’s: 
+
+{% highlight sql %}
 SELECT * FROM category WHERE path LIKE ‘1-2-%’;
+{% endhighlight %}
 
 Như vậy nó sẽ trả về tất cả các nút mà path có prefix là “1-2-” Bao gồm: 
 
