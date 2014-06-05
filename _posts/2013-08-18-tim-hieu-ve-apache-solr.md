@@ -13,6 +13,8 @@ tags : [solr, full-text-search]
 
 Apache Solr khởi đầu là một project nội bộ của CNET được tạo ra bởi [Yonik Seeley](http://yonik.com/about/), nhằm phục vụ chức năng tìm kiếm của website CNET vào nằm 2004 và được đóng góp cho Apache Software Foundation năm 2006. Solr không hoàn toàn là một RESTful interface của Lucene mà là sử dụng Lucene như là một component trong toàn bộ hệ thống. Sau phiên bản Solr 1.4, từ version 3.1 (tháng 3, 2011) thì Solr và Lucene dùng chung một codebase và version number.
 
+<!--more-->
+
 ## Kiến trúc tổng quát
 
 ![Bookstore](/assets/posts/tim-hieu-ve-apache-solr/solr-achitecture.png)
