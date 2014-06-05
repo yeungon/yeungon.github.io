@@ -2,7 +2,7 @@
 layout: post
 title: "Character set và collation trong mysql"
 date: 2013-07-15 8:00 PM
-categories: mysql full-text-search
+categories: [database, mysql]
 author: hungnq1989
 tags : [mysql, full-text-search]
 ---

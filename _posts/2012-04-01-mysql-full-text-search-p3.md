@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Full-text Search - P3"
 date: 2011-12-28 8:00 PM
-categories: mysql  full-text-search
+categories: [database, mysql, full-text-search]
 author: hungnq1989
 tags : [mysql, full-text-search]
 ---
@@ -66,7 +66,7 @@ Như cũng đã nói ở bài trước, ta cũng nên lưu ý một điểu rằ
 
 Ví dụ những từ như "Y tá", "Thư ký" sẽ không tìm ra vì ta thấy mặc dùng tổng độ dài của Y tá hay thư ký lơn hơn 4, nhưng ta đang nói tới từng từ một. Giả sử từ khóa "PHP developers" thì chữ PHP sẽ bị lượt bỏ không tìm kiếm vì độ dài bằng 3.
 
-Muốn search những chữ có độ dài bé hơn 4 như vậy, chúng ta phải config MySQL (my.ini hay my.cnf) ft_min_word_len = 3 (hoặc thấp hơn, nếu muốn search các tiếng CJK thì phải set = 1).
+Muốn search những chữ có độ dài bé hơn 4 như vậy, chúng ta phải config MySQL (my.ini hay my.cnf) `ft_min_word_len = 3` (hoặc thấp hơn, nếu muốn search các tiếng CJK thì phải set `ft_min_word_len = 1`).
 
 Ngoài ra mặc định thì MySQL có một stopword list built-in, nếu như chúng ta không muốn dùng thì cũng có thể cấu hình lại `ft_stopword_file ='path/to/your/file.txt'`. File này chứa những từ chúng ta muốn lọc bỏ mỗi từ cách nhau bởi một ký tự xuống dòng.
 

@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Full-text Search - P2"
 date: 2011-12-28 8:00 PM
-categories: full-text-search mysql
+categories: [database, mysql, full-text-search]
 author: hungnq1989
 tags : [mysql, full-text-search]
 ---
