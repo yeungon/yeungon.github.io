@@ -6,6 +6,8 @@ categories: [database, mysql, full-text-search]
 author: hungnq1989
 tags : [mysql, full-text-search]
 ---
+### Giới thiệu
+
 Trong entry trước ta đã tìm hiểu sơ lược về full text search là gì và tại sao chúng ta phải dùng full text search. Trong entry này chúng ta sẽ tìm hiểu kỹ hơn về cú pháp của và cách dùng full text search trong MySQL.
 <!--more-->
 Chúng ta sẽ sử dụng database mẫu này để thực hiện các ví dụ trong entry này và các entry sau:
