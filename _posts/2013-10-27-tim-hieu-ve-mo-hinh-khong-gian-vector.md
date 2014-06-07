@@ -199,8 +199,8 @@ $$\quad\quad \text{for q,d length-normalized}$$
 
 Còn về vấn đề hiện thực hóa những kỹ thuật và lý thuyết ở trên thành code như thế nào thì chúng ta có thể tham khảo thêm bài viết sau: [Short Introduction to Vecto Space Model](http://pyevolve.sourceforge.net/wordpress/?p=1589)
 
-### Tham khảo
+### References:
 
-* [Introduction to Information Retrieval - By Christopher D. Manning, Prabhakar Raghavan & Hinrich Schütze](http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html)
-* [Machine Learning Text feature extraction (tf-idf) – Part I - Pyevolve](http://pyevolve.sourceforge.net/wordpress/?p=1589)
-* [Nguyễn Tuấn Đăng, 2002 - Khai mỏ văn bản tiếng Việt với bản độ tự tổ chức](http://www.nsl.hcmus.edu.vn/greenstone/collect/thesiskh/index/assoc/HASH740b.dir/0.pdf)
+* Christopher D. Manning, Prabhakar Raghavan & Hinrich Schütze, 2008, 'Introduction to Information Retrieval', 27 Oct 2013, <[http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html](http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html)>
+* Christian S. Perone, 2011, 'Machine Learning Text feature extraction (tf-idf) – Part I', 27 Oct 2013, <[http://pyevolve.sourceforge.net/wordpress/?p=1589](http://pyevolve.sourceforge.net/wordpress/?p=1589)>
+* Nguyễn Tuấn Đăng, 2002, 'Khai mỏ văn bản tiếng Việt với bản độ tự tổ chức', 27 Oct 2013, <[http://www.nsl.hcmus.edu.vn/greenstone/collect/thesiskh/index/assoc/HASH740b.dir/0.pdf](http://www.nsl.hcmus.edu.vn/greenstone/collect/thesiskh/index/assoc/HASH740b.dir/0.pdf)>

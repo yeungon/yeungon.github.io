@@ -344,9 +344,9 @@ Kết quả của 2 đoạn code php thu được đều ra như sau:
   </li>
 </ul>
 
-Tham khảo
+### References:
 
-* http://en.wikipedia.org/wiki/Nested_set_model
-* http://www.evanpetersen.com/item/nested-sets.html
-* http://patrickallaert.blogspot.fi/2008/05/hierarchical-data-in-mysql-and-other.html
-* http://stackoverflow.com/questions/16999530/how-do-i-format-nested-set-model-data-into-an-array
+* 'Nested set model', (n.d), 22 Jun 2013, <[http://en.wikipedia.org/wiki/Nested_set_model](http://en.wikipedia.org/wiki/Nested_set_model)>
+* Evan Petersen, (n.d), 'Nested Sets', 22 Jun 2013, <[http://www.evanpetersen.com/item/nested-sets.html](http://www.evanpetersen.com/item/nested-sets.html)>
+* Patrick Allaert, (n.d), 'Hierarchical data in MySQL (and other RDBMS)', 22 Jun 2013, <[http://patrickallaert.blogspot.fi/2008/05/hierarchical-data-in-mysql-and-other.html](http://patrickallaert.blogspot.fi/2008/05/hierarchical-data-in-mysql-and-other.html)>
+* 'How do I format Nested Set Model data into an array?'. (n.d), 22 Jun 2013,<[http://stackoverflow.com/questions/16999530/how-do-i-format-nested-set-model-data-into-an-array](http://stackoverflow.com/questions/16999530/how-do-i-format-nested-set-model-data-into-an-array)>

@@ -5,12 +5,12 @@ permalink: /:year/:month/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md","package.json", "Gruntfile.js", "node_modules"]
 pygments: true
-paginate: 5
+paginate: 50
 markdown: kramdown
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Bút chì số
+title : Bút Chì Số
 tagline: Site Tagline
 author :
   avatar: avatar.png

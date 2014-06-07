@@ -302,9 +302,9 @@ Tới đây việc cấu hình và chạy thử Solr của chúng ta đã hoàn 
 
 ### References:
 
-* Apache Solr Reference Guid - http://apache.mirrors.pair.com/lucene/solr/ref-guide/apache-solr-ref-guide-4.4.pdf
-* Apache Solr Search for everyone - http://www.slideshare.net/jarannilsen/apache-solr-search-for-everyone
-* Apache Solr: Get started, get excited - http://java.dzone.com/articles/apache-solr-get-started-get
-* Searching with Solr - http://www.slideshare.net/blendinteractive/searching-with-sorl
-* CJK Tokenizer Factory - http://d.hatena.ne.jp/knaka20blue/20090930/1254289965
-* Indexing Chinese Solr - http://java.dzone.com/articles/indexing-chinese-solr
+* Apache Solr Reference Guid, n.d, 18 Aug 2013, <[http://apache.mirrors.pair.com/lucene/solr/ref-guide/apache-solr-ref-guide-4.4.pdf](http://apache.mirrors.pair.com/lucene/solr/ref-guide/apache-solr-ref-guide-4.4.pdf)>
+* Jaran Nilsen, 2011, 'Apache Solr Search for everyone', 18 Aug 2013, <[http://www.slideshare.net/jarannilsen/apache-solr-search-for-everyone](http://www.slideshare.net/jarannilsen/apache-solr-search-for-everyone)>
+* Peter Karussell, 2011, 'Apache Solr: Get started, get excited', 18 Aug 2013, <[http://java.dzone.com/articles/apache-solr-get-started-get](http://java.dzone.com/articles/apache-solr-get-started-get)>
+* Tyler Hams, 2012, 'Searching with Solr', 18 Aug 2013, <[http://www.slideshare.net/blendinteractive/searching-with-sorl](http://www.slideshare.net/blendinteractive/searching-with-sorl)>
+* '[Solr] CJKTokenizerFactory と NGramTokenizerFactory の動作の違い', n.d, 18 Aug 2013, <[http://d.hatena.ne.jp/knaka20blue/20090930/1254289965](http://d.hatena.ne.jp/knaka20blue/20090930/1254289965)>
+* Jason Hull, 2012, 'Indexing Chinese Solr', 18 Aug 2013, <[http://java.dzone.com/articles/indexing-chinese-solr](http://java.dzone.com/articles/indexing-chinese-solr)>
