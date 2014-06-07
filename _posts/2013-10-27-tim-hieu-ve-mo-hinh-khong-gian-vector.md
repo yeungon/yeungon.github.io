@@ -5,6 +5,7 @@ date: 2013-10-27 8:00 PM
 categories: [natural-language-processing, full-text-search]
 author: hungnq1989
 tags : [natural-language-processing, full-text-search]
+comments: true
 ---
 
 ### Giới thiệu

@@ -5,6 +5,7 @@ date: 2011-12-28 8:00 PM
 categories: [database, mysql, full-text-search]
 author: hungnq1989
 tags : [mysql, full-text-search]
+comments: true
 ---
 ### Giới thiệu
 Tiếp theo phần trước, thì phần này ta sẽ tìm hiểu về cơ chế đánh giá độ phù hợp (relevance) của MySQL và cơ chế Indexing.

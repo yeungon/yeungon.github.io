@@ -5,6 +5,7 @@ date: 2011-11-26 8:00 PM
 categories: [database, mysql, full-text-search]
 author: hungnq1989
 tags : [mysql, full-text-search]
+comments: true
 ---
 
 ## I.  Full text search là gì?

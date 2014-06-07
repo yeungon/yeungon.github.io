@@ -5,6 +5,7 @@ date: 2013-07-15 8:00 PM
 categories: [database, mysql]
 author: hungnq1989
 tags : [mysql, full-text-search]
+comments: true
 ---
 
 ### Character set = characters + encoding method

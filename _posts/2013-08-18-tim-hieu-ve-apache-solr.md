@@ -5,6 +5,7 @@ date: 2013-08-18 8:00 PM
 categories: [solr, full-text-search]
 author: hungnq1989
 tags : [solr, full-text-search]
+comments: true
 ---
 
 ## Sơ lược

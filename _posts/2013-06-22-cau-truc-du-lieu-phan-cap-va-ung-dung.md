@@ -5,6 +5,7 @@ date: 2013-06-22 8:00 PM
 categories: [data-structure]
 author: hungnq1989
 tags : [data-structure]
+comments: true
 ---
 
 ### Giới thiệu

@@ -5,6 +5,7 @@ date: 2013-03-29 8:00 PM
 categories: [mongodb, database]
 author: hungnq1989
 tags : [mongodb]
+comments: true
 ---
 
 ### Giới thiệu 
