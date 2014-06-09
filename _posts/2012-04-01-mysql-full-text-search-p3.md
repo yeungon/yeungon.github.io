@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MySQL Full-text Search - P3"
-date: 2011-12-28 8:00 PM
+date: 2012-04-01 8:00 PM
 categories: [database, mysql, full-text-search]
 author: hungnq1989
 tags : [mysql, full-text-search]
