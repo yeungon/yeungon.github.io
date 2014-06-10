@@ -197,6 +197,7 @@ Dù dữ liệu được lưu ở dạng nào thì nếu ta xây dựng một c�
 ### Parent-child model 
 
 {% highlight php %}
+<?php
 $list = array(
  array('id'=>1,'name'=>'Clothing','parent_id'=>null),
  array('id'=>2,'name'=>'Men\'s','parent_id'=>1),
