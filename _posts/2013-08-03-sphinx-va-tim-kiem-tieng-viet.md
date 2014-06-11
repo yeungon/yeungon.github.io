@@ -9,7 +9,7 @@ comments: true
 ---
 
 ### Giới thiệu
-Tham khảo cách cài đặt Sphinx ở đây trước. Đây là file cấu hình giúp Sphinx có thể đánh dấu chỉ mục (indexing) và tiếng kiếm tiếng Việt không phân biệt hoa/ thường có dấu hoặc không dấu (case-insensitive và accents-insensitive).
+Tham khảo cách cài đặt Sphinx ở [bài trước](/2012/04/cai-va-chay-thu-sphinx-tren-windows.html). Đây là file cấu hình giúp Sphinx có thể đánh dấu chỉ mục (indexing) và tiếng kiếm tiếng Việt không phân biệt hoa/ thường có dấu hoặc không dấu (case-insensitive và accents-insensitive).
 
 Về cơ bản, thì chúng ta phải cấu hình charset_table để mapping các ký tự có dấu (accents) trở về các ký tự không dấu (ví dụ như a,á,à,ạ,ã v.v --> a). Điều này rất quan trọng vì trong thực tế không phải lúc nào cũng gõ tiếng Việt có dấu. Và lưu ý, charset_table chỉ cấu hình trên một dòng duy nhất.
 
