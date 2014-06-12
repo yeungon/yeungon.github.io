@@ -276,7 +276,7 @@ a {
 }
 
 body {
-  font-family: 'Helvetica Nue', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Serif', Georgia, serif;
   color: #222222;
 }
 
@@ -286,7 +286,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Helvetica Nue', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Serif', Georgia, serif;
 }
 
 h1 {

@@ -130,9 +130,11 @@ Ví dụ: Khoảng cách Levenshtein giữa 2 chuỗi "kitten" và "sitting" là
 {% endhighlight %}
 
 ### Sử dụng hàm soundex
-string soundex ( string $str ) Hàm này sử dụng thuật toán ngữ âm (phonetic algorithm) để tính toán chỉ mục của các tự dựa trên cách phát âm của nó (theo tiếng Anh). Hàm này trả về một chuỗi 4 ký tự bắt đầu với một chữ cái. Thuật toán này được mô tả trong cuốn nổi tiếng The Art Of Computer Programming, vol. 3: Sorting And Searching", Addison-Wesley (1973), pp. 391-392 của Donald Knuth.
+`string soundex ( string $str )` 
 
-Ví dụ: Trong MySQL có một hàm tương tự soundex. Ta có thể dùng hàm này để đưa ra tìm không gần đúng một keyword. Ta lưu trong database 1 trường soundex, để so sánh với keyword người dùng đưa vào:
+Hàm này sử dụng thuật toán ngữ âm (phonetic algorithm) để tính toán chỉ mục của các tự dựa trên cách phát âm của nó (theo tiếng Anh). Hàm này trả về một chuỗi 4 ký tự bắt đầu với một chữ cái. Thuật toán này được mô tả trong cuốn nổi tiếng The Art Of Computer Programming, vol. 3: Sorting And Searching", Addison-Wesley (1973), pp. 391-392 của Donald Knuth.
+
+Ví dụ: Trong MySQL có một hàm tương tự [soundex](http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_soundex). Ta có thể dùng hàm này để đưa ra tìm không gần đúng một keyword. Ta lưu trong database 1 trường soundex, để so sánh với keyword người dùng đưa vào:
 
 `SELECT p.name FROM products p WHERE p.soundex = SOUNDEX(‘test’);`
 
