@@ -36,27 +36,26 @@ ElasticSearch hỗ trợ mapping một số kiểu dữ liệu như là `geo_poi
 
 Ví dụ ta mapping một cấu trúc index như sau:
 
-{% highlight json %} 
+{% highlight json %}
 curl -XPUT http://localhost:9200/business -d '
 {
-    "mappings": {
-        "restaurant": {
-            "type" : "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "location": {
-                    "type"          : "geo_point",
-                    "geohash"       : true,
-                    "geohash_prefix": true
-                },
-                "address" : {
-                    "type" : "string"
-                }
+ "mappings" : {
+    "restaurant": {
+        "properties": {
+            "name": {
+                "type": "string"
+            },
+            "location": {
+                "type"          : "geo_point",
+                "geohash"       : true,
+                "geohash_prefix": true
+            },
+            "address" : {
+                "type" : "string"
             }
-        }
+      }
     }
+  }
 }'
 {% endhighlight %}
 
@@ -73,6 +72,8 @@ Chúng ta có một số địa điểm như sau:
 | Lẩu Dê Bình Điền            | 10.869835 | 106.763260 | w3gvv6y9kk0e | 1296C Kha Vạn Cân, Quận Thủ Đức                   |
 
 [Lấy snippet ở đây](https://gist.github.com/hungnq1989/fc9241dfb45e1e4da166)
+
+**Có một điểm hay là chúng ta chỉ cần nhập vào `lat` và `long` còn `geohash` thì ElasticSearch tự sinh ra.
 
 #### - Geo sort
 
@@ -105,13 +106,13 @@ Ví dụ, chúng ta đang đứng ở dinh Độc lập có toạ độ là (`10
 , thì tiến hành truy vấn như sau:
 
 {% highlight json %} 
-curl -XGET "http://localhost:9200/business/_search?pretty=1 " -d'
+curl -XGET "http://localhost:9200/business/restaurant/_search?pretty=1 " -d'
 {
     "filter" : {
         "geo_distance" : {
             "location" : {
-                "lat" : "10.776945451753402",
-                "lon" : "106.69494867324829"
+                "lat" : 10.776945451753402,
+                "lon" : 106.69494867324829
             }, 
             "distance": "4km",
             "distance_type": "arc"
@@ -127,7 +128,8 @@ ElasticSearch sẽ trả về các [**kết quả**](https://gist.github.com/hun
 
 Ví dụ, thống kê tất cả `geohash` giống nhau 5 ký tự đầu tiên (Tức là thống kê những địa điểm trong cùng một khu vực 5 $$km^2$$)
 
-{% highlight json %} 
+{% highlight json %}
+curl -XGET "http://localhost:9200/business/restaurant/_search?pretty=1 " -d'
 {
     "size": 0,
     "aggregations" : {
@@ -138,7 +140,7 @@ Ví dụ, thống kê tất cả `geohash` giống nhau 5 ký tự đầu tiên 
             }
         }
     }
-}
+}'
 {% endhighlight %}
 
 Kết quả

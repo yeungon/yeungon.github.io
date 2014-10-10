@@ -1,6 +1,6 @@
-curl -XPUT http://localhost:9200/business -d '
+curl -XPUT "http://localhost:9200/business/_mapping" -d '
 {
-    "mappings": {
+    "mappings" : {
         "restaurant": {
             "type" : "object",
             "properties": {
@@ -19,6 +19,7 @@ curl -XPUT http://localhost:9200/business -d '
         }
     }
 }'
+curl -XGET "http://localhost:9200/business/_mapping"
 
 curl -XPOST "http://localhost:9200/business/restaurant/_search" -d'
 {
@@ -31,8 +32,9 @@ curl -XPOST "http://localhost:9200/business/restaurant/_search" -d'
     }
 }'
 curl -XGET 'http://127.0.0.1:9200/business/restaurant?pretty=1' 
+curl -XGET 'http://localhost:9200/business/_mapping/restaurant'
 
-curl -XGET 'localhost:9200/business/restaurant/_search?search_type=scan&scroll=10m&size=50' -d '
+curl -XGET 'localhost:9200/business/restaurant/_search' -d '
 {
     "query" : {
         "match_all" : {}
@@ -120,16 +122,17 @@ curl -XPOST "http://localhost:9200/business/restaurant" -d '{
 
 curl -XGET 'http://localhost:9200/business/restaurant/FD_6g-b2TaaP3M5-cAGjOw'
 
-curl -XGET "http://localhost:9200/business/_search " -d'
+curl -XGET "http://localhost:9200/business/restaurant/_search " -d'
 {
-    "filter" : {
-        "geo_distance" : {
-            "location" : {
-                "lat" : "10.776945451753402",
-                "lon" : "106.69494867324829"
-            }, 
-            "distance": "2km",
-            "distance_type": "arc"
+    "filtered" : {
+        "query" : {
+            "match_all" : {}
+        },
+        "filter" : {
+            "geo_distance" : {
+                "distance" : "12km",
+                "location" : "drm3btev3e86"
+            }
         }
     }
 }'
@@ -142,6 +145,16 @@ curl -XGET 'localhost:9200/business/restaurant/_search?size=50&pretty=1' -d '
     }
 }'
 
+"filter" : {
+        "geo_distance" : {
+            "location" : {
+                "lat" : "10.776945451753402",
+                "lon" : "106.69494867324829"
+            }, 
+            "distance": "2km",
+            "distance_type": "arc"
+        }
+    }
 curl -XGET 'localhost:9200/business/restaurant/_search?size=50&pretty=1' -d '
 {
     "query": {
