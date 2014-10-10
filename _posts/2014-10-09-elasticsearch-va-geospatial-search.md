@@ -73,7 +73,7 @@ Chúng ta có một số địa điểm như sau:
 
 [Lấy snippet ở đây](https://gist.github.com/hungnq1989/fc9241dfb45e1e4da166)
 
-**Có một điểm hay là chúng ta chỉ cần nhập vào `lat` và `long` còn `geohash` thì ElasticSearch tự sinh ra.
+**Có một điểm hay là chúng ta chỉ cần nhập vào `lat` và `long` còn `geohash` thì ElasticSearch tự sinh ra.**
 
 #### - Geo sort
 
