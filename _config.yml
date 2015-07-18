@@ -12,6 +12,7 @@ markdown: kramdown
 #
 title : Bút Chì Số
 tagline: Site Tagline
+url: http://butchiso.com
 author :
   avatar: avatar.png
   name : Hung Nguyen
@@ -19,9 +20,6 @@ author :
   github : hungnq1989
   twitter : hungnq1989
   feedburner : feedname
-site:
-  url: http://butchiso.com
-
 comments :
   provider : disqus
   disqus :
