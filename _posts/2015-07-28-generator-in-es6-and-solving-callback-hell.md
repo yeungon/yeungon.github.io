@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Generator in ES6 as solution to solve callback hell"
+title: "Generator in ES6 and solving callback hell"
 date: 2015-07-18 3:45 AM
 categories: [javascript, en]
 author: hungnq1989
@@ -39,9 +39,9 @@ Futhermore, we can also using [`yield*](https://developer.mozilla.org/en-US/docs
 
 >The next() method also accepts a value which can be used to modify the internal state of the generator. A value passed to next() will be treated as the result of the last yield expression that paused the generator.
 
-# 3. Example
+# 3. `Generator` usage
 
-## 3.1 Example 1
+## 3.1 Simple example
 
 In this simple example, instead of creating an array to store all odd numbers, we just simply create `a rule` for generating them.
 
@@ -60,7 +60,7 @@ console.log(gen.next().value); // 5
 console.log(gen.next().value); // 7
 {% endhighlight %}
 
-## 3.2 But wait, what is the practical application for `Generator`?
+## 3.2 What is `callback hell` and how to solve it?
 
 First, let's take a look at this **callback hell** or **pyramid of doom**
 
