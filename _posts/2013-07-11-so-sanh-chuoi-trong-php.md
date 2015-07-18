@@ -2,7 +2,7 @@
 layout: post
 title: "So sánh chuỗi trong PHP"
 date: 2013-07-11 8:00 PM
-categories: [php]
+categories: [php, vi]
 author: hungnq1989
 tags : [php]
 comments: true

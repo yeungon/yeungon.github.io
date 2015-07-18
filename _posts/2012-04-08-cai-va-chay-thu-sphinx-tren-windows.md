@@ -2,7 +2,7 @@
 layout: post
 title: "Cài và chạy thử Sphinx trên Windows"
 date: 2012-04-08 8:00 PM
-categories: [database, sphinx, mysql, full-text-search]
+categories: [database, sphinx, mysql, full-text-search, vi]
 author: hungnq1989
 tags : [sphinx, mysql, full-text-search]
 comments: true

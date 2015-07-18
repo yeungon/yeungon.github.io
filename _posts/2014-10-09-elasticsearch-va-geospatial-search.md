@@ -2,7 +2,7 @@
 layout: post
 title: "ElasticSearch và Geospatial search"
 date: 2014-10-09 8:00 PM
-categories: [nosql, search-engine, information-retrieval]
+categories: [nosql, search-engine, information-retrieval, vi]
 author: hungnq1989
 tags : [geospatial, elasticsearch, information-retrieval]
 comments: true

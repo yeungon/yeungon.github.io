@@ -200,3 +200,130 @@ curl -XPOST "http://localhost:9200/business/restaurant/_search?pretty=1" -d'
         }
     }
 }'
+
+
+curl -XGET 'localhost:9200/businesses/business/_search?size=50&pretty=1' -d '
+{
+    "query": {
+         "multi_match": {
+            "query": "Beauty Tampere",
+            "type" : "cross_fields",
+            "fields": [ "business_name", "category_name", "address", "name", "postcode", "city","country", "phone" ]
+        }
+    }
+}'
+curl -XGET 'localhost:9200/businesses/business/_search?size=50&pretty=1' -d '
+{
+    "query": {
+        "fuzzy_like_this" : {
+
+            "like_text" : "HiusAkatemia",
+            "min_term_freq" : 1,
+            "max_query_terms" : 12
+        }
+    }
+}'
+
+curl -XGET 'http://localhost:9200/businesses/business/88'
+
+
+ $data = [];
+            $keyword = $q . ' ' . $location;
+            $params['index'] = 'businesses';
+            $params['type']  = 'business';
+            $params['size']  = Config::get('view.perPage');
+            $params['body']['query']['multi_match']['query'] = $keyword;
+            $params['body']['query']['multi_match']['type']  = "cross_fields";
+            $params['body']['query']['multi_match']['fields'] = [
+                "business_name",
+                "category_name",
+                "address",
+                "name",
+                "postcode",
+                "city",
+                "country",
+                "phone"
+            ];
+
+curl -XGET 'localhost:9200/businesses/business/_search?size=50&pretty=1&explain' -d '
+{
+ "query" : {
+  "filtered" : {
+    "query": {
+         "bool": {
+            "should": [
+                {
+                "match" : { "business_name" : "rest"}
+                },                  
+                {
+                "match" : { "category_name" : "rest"}
+                },                  
+                {
+                "match" : { "name" : "rest"}
+                },
+                {
+                "match" : { "description" : "rest"}
+                }
+            ]
+        }
+    },
+    "filter" : {
+        "exists" : { "field" : "business_name" }
+    }
+   }
+   }
+}'
+
+curl -XGET 'localhost:9200/businesses/business/_search?pretty=1' -d '
+{
+ "query" : {
+  "filtered" : {
+    "query": {
+         "bool": {
+            "should": [
+                {
+                "match" : { "business_name" : "hair"}
+                },                  
+                {
+                "match" : { "category_name" : "hair"}
+                },                  
+                {
+                "match" : { "name" : "hair"}
+                },
+                {
+                "match" : { "description" : "hair"}
+                }
+            ]
+        }
+    },
+    "filter" : {
+        "exists" : { "field" : "business_name" }
+    }
+   }
+   }
+}'
+
+            $params['body']['query']['bool']['should'][]['match']['name']          = $q;
+            $params['body']['query']['bool']['should'][]['match']['business_name'] = $q;
+            $params['body']['query']['bool']['should'][]['match']['category_name'] = $q;
+            $params['body']['query']['bool']['should'][]['match']['description']   = $q;
+            if(!empty($location)) {
+                $params['body']['query']['bool']['should'][]['match']['city'] = $location;
+                $params['body']['query']['bool']['should'][]['match']['country'] = $location;
+            }
+curl -XGET 'http://127.0.0.1:9200/businesses/business/_search?pretty=1'  -d '
+{
+   "query" : {
+      "filtered" : {
+         "filter" : {
+            "exists" : {
+               "field" : "business_name"
+            }
+         },
+         "query" : {
+            "match_all" : {}
+         }
+      }
+   }
+}
+'
