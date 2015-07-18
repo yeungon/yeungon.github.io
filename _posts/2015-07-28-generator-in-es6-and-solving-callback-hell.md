@@ -6,11 +6,11 @@ categories: [javascript, en]
 author: hungnq1989
 tags : [javascript, es6, generator, asynchronous, callback]
 description: What is Generator in ES6, its basic usage and how to use it to solve callback hell?
-image: /assets/posts/generator-in-es6-and-solving-callback-hell/es6.png
+image: /assets/posts/generator-in-es6-and-solving-callback-hell/ecmascript6.png
 comments: true
 ---
 
-![ECMAScript6](/assets/posts/generator-in-es6-and-solving-callback-hell/es6.png)
+![ECMAScript6](/assets/posts/generator-in-es6-and-solving-callback-hell/ecmascript6.png)
 
 # 1. What is `Generator`?
 
