@@ -6,7 +6,7 @@ categories: [cryptography, vi]
 author: hungnq1989
 tags : [cryptography, rsa, asymmetric cryptography]
 description: Mã hoá bất đối xứng RSA
-image: /assets/posts/generator-in-es6-and-solving-callback-hell/ecmascript6.png
+image: /assets/posts/ma-hoa-bat-doi-xung-rsa/asym-encryption.png
 comments: true
 ---
 
