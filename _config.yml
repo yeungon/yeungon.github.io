@@ -4,7 +4,7 @@
 permalink: /:year/:month/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md","package.json", "Gruntfile.js", "node_modules"]
-highlighter: true
+highlighter: pygments
 gems: [jekyll-paginate]
 paginate: 50
 markdown: kramdown
@@ -13,7 +13,8 @@ markdown: kramdown
 #
 title : Bút Chì Số
 tagline: Site Tagline
-url: http://butchiso.com
+url: http://localhost:4000 #http://butchiso.com
+base_url: http://localhost:4000
 author :
   avatar: avatar.png
   name : Hung Nguyen
