@@ -40,7 +40,7 @@ Về cơ bản, HTTP truyền dữ liệu dưới dạng `plain text`, nghĩa l�
 
 RSA là một trong những hệ thống mã hoá bất đối xứng được sử dụng rộng rãi. Nó được đặt theo tên của 3 nhà khoa học MIT thiết kế ra nó là: Ron **Rivest**, Adi **Shamir**, và Leonard **Adleman**. Ý tưởng then chốt để đảm bảo tính an toàn của RSA là dựa trên sự khó khăn trong việc phân tích nhân tử của 2 số nguyên tố lớn. (a x b = c, tìm ngược lại a, b từ c là phân tích nhân tử).
 
-Hệ thống mã hoá RSA bao gồm 4 bước: **key generation**, **key distribution**, **encryption** và **decryption**. Vì để đảm bảo tính bí mật, nên mỗi hệ thống khác nhau cần tạo ra các public, và private key khác nhau. Sau đó public key phải được chuyển tới phía client và sau đó các thao tác encrypt và decrypt mới được thực hiện.
+Hệ thống mã hoá RSA bao gồm 4 bước: **key generation**, **key distribution**, **encryption** và **decryption**. Vì để đảm bảo tính bí mật, nên mỗi hệ thống khác nhau cần tạo ra các public, và private key khác nhau. Sau qúa trình `handshake` và `public key` được gởi tới phía client thì thông tin mới chính thức được mã hoá khi server và client giao tiếp với nhau.
 
 # 4. Mã hoá và giải mã
 
