@@ -13,8 +13,7 @@ markdown: kramdown
 #
 title : Bút Chì Số
 tagline: Site Tagline
-url: http://localhost:4000 #http://butchiso.com
-base_url: http://localhost:4000
+url: http://butchiso.com
 author :
   avatar: avatar.png
   name : Hung Nguyen
