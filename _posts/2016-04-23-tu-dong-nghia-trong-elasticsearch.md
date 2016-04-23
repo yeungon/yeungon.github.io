@@ -6,7 +6,7 @@ categories: [search-engine, information-retrieval, vi]
 author: hungnq1989
 tags : [search-engine, information-retrieval, elasticsearch]
 description: Từ đồng nghĩa (synonyms) trong ElasticSearch
-image: /assets/posts/ma-hoa-bat-doi-xung-rsa/asym-encryption.png
+image: /assets/posts/tu-dong-nghia-trong-elasticsearch/analyzer.png
 comments: true
 ---
 
@@ -38,8 +38,8 @@ curl -X PUT 'http://localhost:9200/butchiso/_settings' -d \
         "synonym_filter" : {
             "type" : "synonym",
             "synonyms" : [ 
-              "TP.HCM, TP Hồ Chí Minh, Sài Gòn, Saigon", 
-              "developer,programmer,coder,lập trình viên,kỹ sư phần mềm", 
+              "tphcm,tp.hcm,tp hồ chí minh,sài gòn,saigon",
+              "developer,programmer,coder,lập trình viên,kỹ sư phần mềm"
             ],
             "tokenizer" : "keyword"
         }
@@ -58,6 +58,82 @@ Việc index lại một cơ sơ dữ liệu lớn thường mất thời gian, 
 
 # Chạy thử synonym_analyzer
 
+![https](/assets/posts/tu-dong-nghia-trong-elasticsearch/analyzer.png){: .center-image }
+
+Có một điểm thú vị là chúng ta có thể thử chạy synonym_filter vừa rồi thông qua REST infterface của ElasticSearch.
+
+Ví dụ, chúng ta test thử với keyword là developer, để xem thử có có những synonym nào được tìm thấy.
+
+{% highlight javascript %}
+curl -XGET 'http://localhost:9200/butchiso/_analyze?analyzer=synonym_analyzer&pretty' -d  'developer'
+{
+  "tokens" : [ {
+    "token" : "developer",
+    "start_offset" : 0,
+    "end_offset" : 9,
+    "type" : "SYNONYM",
+    "position" : 1
+  }, {
+    "token" : "programmer",
+    "start_offset" : 0,
+    "end_offset" : 9,
+    "type" : "SYNONYM",
+    "position" : 1
+  }, {
+    "token" : "coder",
+    "start_offset" : 0,
+    "end_offset" : 9,
+    "type" : "SYNONYM",
+    "position" : 1
+  }, {
+    "token" : "lập trình viên",
+    "start_offset" : 0,
+    "end_offset" : 9,
+    "type" : "SYNONYM",
+    "position" : 1
+  }, {
+    "token" : "kỹ sư phần mềm",
+    "start_offset" : 0,
+    "end_offset" : 9,
+    "type" : "SYNONYM",
+    "position" : 1
+  } ]
+}
+{% endhighlight %}
+
+Như chúng ta thấy, qua synonym_analyzer, chúng ta lấy được các từ đồng nghĩa liên quan. Tuy nhiên nếu chúng ta thử với từ khoá "lập trình viên", thì kết quả khá bất ngờ, đây là vấn đề xảy ra với mutlti-term keyword và Solr cũng bị vấn đề này. Chúng ta có thể trỏ mọi synonym về một từ duy nhất ví dụ "programmer,coder,lập trình viên,kỹ sư phần mềm => developer", tuy nhiên cách này khi người nhập lập trình viên hay coder chỉ nhận được những kết quả khớp vời từ khoá developer.
+
+Cá nhân mình thì chọn cách dùng dấu gạch dưới _ để thay khoản trắng (ví dụ lập_trình_viên), và trong quá trình tạo index thì cũng append thêm 1 chuỗi thay khoảng trắng bằng gạch dưới vào phần index. Ví dụ: "Lập trình viên PHP lập_trình_viên_php", cách này hơi tốn bộ nhớ nhưng có vẻ ổn.
+
+{% highlight javascript %}
+curl -XGET 'http://localhost:9200/butchiso/_analyze?analyzer=synonym_analyzer&pretty' -d  'lập trình viên'
+{
+  "tokens" : [ {
+    "token" : "lập",
+    "start_offset" : 0,
+    "end_offset" : 3,
+    "type" : "<ALPHANUM>",
+    "position" : 1
+  }, {
+    "token" : "trình",
+    "start_offset" : 4,
+    "end_offset" : 9,
+    "type" : "<ALPHANUM>",
+    "position" : 2
+  }, {
+    "token" : "viên",
+    "start_offset" : 10,
+    "end_offset" : 14,
+    "type" : "<ALPHANUM>",
+    "position" : 3
+  } ]
+}
+
+{% endhighlight %}
+
+
 
 # Tham khảo 
 1. Using synonym [https://www.elastic.co/guide/en/elasticsearch/guide/current/using-synonyms.html](https://www.elastic.co/guide/en/elasticsearch/guide/current/using-synonyms.html)
+2. Multiword Synonyms and Phrase Queries [https://www.elastic.co/guide/en/elasticsearch/guide/current/multi-word-synonyms.html](https://www.elastic.co/guide/en/elasticsearch/guide/current/multi-word-synonyms.html)
+3. Elasticsearch: updating the mappings and settings of an existing index [https://gist.github.com/nicolashery/6317643](https://gist.github.com/nicolashery/6317643)
