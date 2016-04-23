@@ -6,13 +6,13 @@ categories: [cryptography, vi]
 author: hungnq1989
 tags : [cryptography, rsa, asymmetric cryptography]
 description: Mã hoá bất đối xứng RSA
-image: /assets/posts/ma-hoa-bat-doi-xung-rsa/asym-encryption.png
+image: /assets/posts/rsa/asym-encryption.png
 comments: true
 ---
 
 # 1. Sơ lược về mã hoá đối xứng và bất đối xứng
 
-![Asymmetric cryptography](/assets/posts/ma-hoa-bat-doi-xung-rsa/asym-encryption.png){: .center-image }
+![Asymmetric cryptography](/assets/posts/rsa/asym-encryption.jpg){: .center-image }
 
 Hầu như ai có tìm hiểu về an toàn thông tin đều biết đến hai loại mã hoá phổ biến là mã hoá đối xứng (`symmetric cryptography`) 
 và mã hoá bất đối xứng (`asymmetric cryptography`). Về cơ bản thì:
@@ -27,7 +27,7 @@ khoá bằng public key.
 
 # 2. Tại sao cần má hoá bất đối xứng?
 
-![https](/assets/posts/ma-hoa-bat-doi-xung-rsa/https.jpg){: .center-image }
+![https](/assets/posts/rsa/https.jpg){: .center-image }
 
 Nói ngắn gọn thì hầu như các ứng dụng bạn dùng hàng ngày hiện nay như Facebook, Gmail, Amazon, PayPal v.v đều sử dụng giao thức HTTPs. Có thể hiểu là giao thức HTTPs an toàn hơn HTTP vì toàn bộ thông tin truyền đi giữa client và server được bảo vệ bởi bộ mã hoá SSL/TSL. SSL/TSL này hoạt động dựa trên cả hai loại mã hoá đối xứng và bất đối xứng. Nhờ nó mà chúng ta có thể đảm bảo bí mật khi thực hiện những giao dịch có chứa thông tin `nhạy cảm` trên Internet mà không bị đánh cắp thông tin trong suốt quá trình truyền nhận dữ liệu. Có thể nói, nếu không có mật mã, đặc biệt là mã hoá bất đối xứng thì **không có thương mại điện tử**.
 
