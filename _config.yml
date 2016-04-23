@@ -13,7 +13,7 @@ markdown: kramdown
 #
 title : Bút Chì Số
 tagline: Site Tagline
-url: http://butchiso.com
+url: http://127.0.0.1:4000 #http://butchiso.com
 author :
   avatar: avatar.png
   name : Hung Nguyen
