@@ -114,7 +114,7 @@ Sau khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nả
 
 Thật ra mà nói DI là một khái niệm không mới mẻ gì, nhất là trong thế giới Java. Martin Folwer đã viết về [Dependency Pattern và IoC container từ năm 2004](http://martinfowler.com/articles/injection.html). Thậm chí xa hơn thuật ngữ *inversion of control* đã xuất hiện từ năm 1988 trong [paper Designing Reusable Classes](http://www.laputan.org/drc/drc.html) của Johnson và Foote.Tuy nhiên cho đến gần đầy thì mới có một vài frameworks PHP sử dụng DI và IoC container như [Laravel](https://laravel.com/docs/4.2/ioc) hay [Pimple](http://pimple.sensiolabs.org/). Từ Laravel 5.0 trở đi Laravel gọi nó là Service container thay vì IoC container như trước.
 
-Khởi nguyên của Laravel là một dự án có IoC Container mà Taylor Otwell viết cho CodeIgniter, mà nó còn được tái sử dụng cho đến tận Laravel 5.x như bây giờ. Và bản chất thì Laravel chính là một IoC container mà cụ thể là `Illuminate\Container\Container` trong Laravel. 
+Khởi nguyên của Laravel là một dự án IoC Container cho CodeIgniter do Taylor Otwell viết có tên là CInject. Theo như Taylor thì thậm chí nó còn được tái sử dụng cho đến tận Laravel 5.x như bây giờ. Và bản chất thì Laravel chính là một IoC container mà cụ thể là class `Illuminate\Container\Container`. 
 
 !["Ảnh chụp màn hình của dự án CInject trên Google Code"](/assets/posts/laravel-dependency-injection-va-ioc-container/cinject.png "Ảnh chụp màn hình của dự án CInject trên Google Code"){: .center-image }
 
