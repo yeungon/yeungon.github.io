@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Laravel : Dependency Injection và IoC conainter"
+title: "Laravel : Dependency Injection và IoC containter"
 date: 2016-06-25 22:20 PM
 categories: [web-development]
 author: hungnq1989
 tags : [dependency-injection, ioc-container, php, laravel]
-description: "Laravel : Dependency Injection và IoC conainter"
+description: "Laravel : Dependency Injection và IoC containter"
 image: /assets/images/laravel.jpg
 comments: true
 ---
