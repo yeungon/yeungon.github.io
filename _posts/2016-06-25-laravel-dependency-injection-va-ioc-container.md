@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Laravel : Dependency Injection và IoC containter"
+title: "Laravel : Dependency Injection và IoC container"
 date: 2016-06-25 22:20 PM
 categories: [web-development]
 author: hungnq1989
 tags : [dependency-injection, ioc-container, php, laravel]
-description: "Laravel : Dependency Injection và IoC containter"
+description: "Laravel : Dependency Injection và IoC container"
 image: /assets/images/laravel.jpg
 comments: true
 ---
@@ -110,7 +110,7 @@ $log->info('This object depend on another object');
 
 Sau khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, đó là làm thế nào chúng ta biết được lớp Log này phụ thuộc vào những lớp nào để khởi tạo nó? Việc này nghe có vẻ đơn giản, nhưng có khả năng xảy ra trường hợp lớp Log phụ thuộc vào lớp MySQLLogger, còn lớp MySQLLogger phụ thuộc vào lớp DatabaseAccess nào đó. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
 
-Để giải quyết điều này, người ta nghĩ ra Dependency Injection Container hay còn gọi là Inversion of Control Containter (IoC ontainer). Thuật ngữ Inversion of Control mang tính tổng quát hơn Dependency Injection, từ đây về sau mình sẽ dù IoC container thay cho Dependecy Injection Container. Về bản chất thì IoC Conainter là một tấm bản đồ, hay một dịch vụ tổng đài cuộc gọi. Nó cho ta biết một lớp phụ thuộc vào những lớp class nào khác và phân giải được những class đó bằng kỹ thuật [Reflection](http://php.net/manual/en/book.reflection.php), hoặc từ danh sách đã được developer đăng ký trước.
+Để giải quyết điều này, người ta nghĩ ra Dependency Injection Container hay còn gọi là Inversion of Control Container (IoC ontainer). Thuật ngữ Inversion of Control mang tính tổng quát hơn Dependency Injection, từ đây về sau mình sẽ dù IoC container thay cho Dependecy Injection Container. Về bản chất thì IoC Conainter là một tấm bản đồ, hay một dịch vụ tổng đài cuộc gọi. Nó cho ta biết một lớp phụ thuộc vào những lớp class nào khác và phân giải được những class đó bằng kỹ thuật [Reflection](http://php.net/manual/en/book.reflection.php), hoặc từ danh sách đã được developer đăng ký trước.
 
 Thật ra mà nói DI là một khái niệm không mới mẻ gì, nhất là trong thế giới Java. Martin Folwer đã viết về [Dependency Pattern và IoC container từ năm 2004](http://martinfowler.com/articles/injection.html). Thậm chí xa hơn thuật ngữ *inversion of control* đã xuất hiện từ năm 1988 trong [paper Designing Reusable Classes](http://www.laputan.org/drc/drc.html) của Johnson và Foote.Tuy nhiên cho đến gần đầy thì mới có một vài frameworks PHP sử dụng DI và IoC container như [Laravel](https://laravel.com/docs/4.2/ioc) hay [Pimple](http://pimple.sensiolabs.org/). Từ Laravel 5.0 trở đi Laravel gọi nó là Service container thay vì IoC container như trước.
 
