@@ -161,7 +161,7 @@ Car {#212 ▼
 }
 {% endhighlight %}
 
-Trở lại với ví dụ về Log ở trên. Nếu như ta khởi tạo object Log bằng `App::make('Log')` Laravel sẽ báo lỗi như sau:
+Trở lại với ví dụ về MyLog ở trên. Nếu như ta khởi tạo object MyLog bằng `App::make('MyLog')` Laravel sẽ báo lỗi như sau:
 
 ```
 Target [LoggerInterface] is not instantiable.
