@@ -48,14 +48,14 @@ class MyLog {
 }
 
 //Main application, somewhere else
-$log = new MyLog();
-$log->info('This object depend on another object');
+$myLog = new MyLog();
+$myLog->info('This object depend on another object');
 {% endhighlight %}
 
-Ví vụ trên là một ví dụ mang tính tượng trưng, nhưng vấn đề chính được nêu ra là class Log bị phụ thuộc vào class StandardLogger. Nói cách khác là class Log bị dính chặt vào class StandardLogger. Hiện tại thì khi chúng ta muốn chuyển sang một loại logger khác (ví dụ như FileLogger hay MongoDBLogger) chúng ta phải sửa lại hàm dựng của class Log.
+Ví vụ trên là một ví dụ mang tính tượng trưng, nhưng vấn đề chính được nêu ra là class MyLog bị phụ thuộc vào class StandardLogger. Nói cách khác là class MyLog bị dính chặt vào class StandardLogger. Hiện tại thì khi chúng ta muốn chuyển sang một loại logger khác (ví dụ như FileLogger hay MongoDBLogger) chúng ta phải sửa lại hàm dựng của class MyLog.
 
 
-Để giải quyết vấn đề phụ thuộc này, chúng ta chỉ cần sửa lại hàm dựng của class Log nhận một tham số là logger là xong. Hay còn gọi là **decouple** hàm dựng của class Log với những class khác mà nó phụ thuộc. Việc này đơn giản được gọi là **Dependency Injection**. Tah-dah, đơn giản quá phải không? Cho nên có người nói DI là một cái tên 25 dollars cho một khái niệm trị giá 5 cents. Nguyên văn của [James Shore](http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html):
+Để giải quyết vấn đề phụ thuộc này, chúng ta chỉ cần sửa lại hàm dựng của class MyLog nhận một tham số là logger là xong. Hay còn gọi là **decouple** hàm dựng của class MyLog với những class khác mà nó phụ thuộc. Việc này đơn giản được gọi là **Dependency Injection**. Tah-dah, đơn giản quá phải không? Cho nên có người nói DI là một cái tên 25 dollars cho một khái niệm trị giá 5 cents. Nguyên văn của [James Shore](http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html):
 
 > "Dependency Injection" is a 25-dollar term for a 5-cent concept. [...] Dependency injection means giving an object its instance variables. [...].
 
@@ -99,16 +99,16 @@ class MyLog
     }
 }
 // Print to standard input/output device
-$log = new MyLog(new StandardLogger);
-$log->info('This object depend on another object');
+$myLog = new MyLog(new StandardLogger);
+$myLog->info('This object depend on another object');
 // Write to file
-$log = new MyLog(new FileLogger);
-$log->info('This object depend on another object'); 
+$myFileLog = new MyLog(new FileLogger);
+$myFileLog->info('This object depend on another object'); 
 {% endhighlight %}
 
 # 2. IoC Conainter là gì?
 
-Sau khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, đó là làm thế nào chúng ta biết được lớp Log này phụ thuộc vào những lớp nào để khởi tạo nó? Việc này nghe có vẻ đơn giản, nhưng có khả năng xảy ra trường hợp lớp Log phụ thuộc vào lớp MySQLLogger, còn lớp MySQLLogger phụ thuộc vào lớp DatabaseAccess nào đó. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
+Sau khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, đó là làm thế nào chúng ta biết được lớp MyLog này phụ thuộc vào những lớp nào để khởi tạo nó? Việc này nghe có vẻ đơn giản, nhưng có khả năng xảy ra trường hợp lớp MyLog phụ thuộc vào lớp MySQLLogger, còn lớp MySQLLogger phụ thuộc vào lớp DatabaseAccess nào đó. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
 
 Để giải quyết điều này, người ta nghĩ ra Dependency Injection Container hay còn gọi là Inversion of Control Container (IoC ontainer). Thuật ngữ Inversion of Control mang tính tổng quát hơn Dependency Injection, từ đây về sau mình sẽ dù IoC container thay cho Dependecy Injection Container. Về bản chất thì IoC Conainter là một tấm bản đồ, hay một dịch vụ tổng đài cuộc gọi. Nó cho ta biết một lớp phụ thuộc vào những lớp class nào khác và phân giải được những class đó bằng kỹ thuật [Reflection](http://php.net/manual/en/book.reflection.php), hoặc từ danh sách đã được developer đăng ký trước.
 
