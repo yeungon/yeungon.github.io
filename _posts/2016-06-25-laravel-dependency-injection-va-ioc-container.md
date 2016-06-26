@@ -209,11 +209,11 @@ Thật may là IoC Container của Larvel  có cung cấp **Contextual Binding**
 
 {% highlight php %}
 <?php
-$this->app->when('MyLog')
+App::when('MyLog')
     ->needs('LoggerInterface')
     ->give('StandardLogger');
 
-$this->app->when('ExceptionLog')
+App::when('ExceptionLog')
     ->needs('LoggerInterface')
     ->give('FileLogger');
 
@@ -241,7 +241,6 @@ Hãy xem thử ví dụ sau:
 
 {% highlight php %}
 <?php
-//Coupled
 class MovieController extends Controller {
     
     use FormBuilderTrait;
@@ -253,7 +252,7 @@ class MovieController extends Controller {
         if (!$form->isValid()) {
            return redirect()->back()->withErrors($form->getErrors())->withInput();
          }
-
+        //Tighly coupled to eloquent model
         $movie = (empty($id)) ? new Movie : Movie::find($id);
         $movie->fill($request->all());
         $movie->user()->associate(Auth::user());
@@ -276,13 +275,13 @@ $this->app->bind(
     'App\Repositories\MovieRepository'
 );
 
-// Decoupled controller from eloquent model
 class MovieController extends Controller {
     
     use FormBuilderTrait;
 
     public function __construct(\App\Contracts\MovieRepositoryInterface $movie) 
-    {
+    {   
+        // Decoupled controller from eloquent model
         $this->movie = $movie;
     }
 
