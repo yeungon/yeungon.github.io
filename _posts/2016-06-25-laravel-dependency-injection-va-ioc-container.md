@@ -307,7 +307,7 @@ class MovieController extends Controller {
 
 # 4. Kết luận
 
-Dependency Injection và IoC container là những khái niệm rất đơn giản. Tuy nhiên chúng ta cần tìm hiểu để biết rõ DI và IoC được ứng dụng trong trường hợp nào, như vậy code của chúng ta sẽ ít kết dính hơn (loosely coupling) nhờ đó cũng linh hoạt và dễ bảo trì cũng như test hơn. Ngoài ra, theo quan điểm cá nhân thì IoC container chính là trái tim của Laravel và cũng là điểm khác biệt lớn những giữa Laravel và các PHP frameworks khác. Hơn nữa, hiểu rõ về IoC container cũng giúp hiểu thêm một chút về cách làm việc của Laravel mà cụ thể là Laravel container. Qua đó chúng ta có thể tận dụng và tổ chức ứng dụng Laravel hợp lý và gọn gàng hơn.
+Dependency Injection và IoC container là những khái niệm rất đơn giản. Tuy nhiên chúng ta cần tìm hiểu để biết rõ DI và IoC được ứng dụng trong trường hợp nào. Nếu áp dụng hợp lý code của chúng ta sẽ ít kết dính hơn (loosely coupling) cũng như dễ bảo trì và test hơn. Ngoài ra, theo quan điểm cá nhân thì IoC container chính là trái tim của Laravel và cũng là điểm khác biệt lớn những giữa Laravel và các PHP frameworks khác. Hơn nữa, hiểu rõ về IoC container cũng giúp chúng ta tận dụng và tổ chức ứng dụng Laravel hợp lý và gọn gàng hơn.
 
 
 # Tham khảo 
