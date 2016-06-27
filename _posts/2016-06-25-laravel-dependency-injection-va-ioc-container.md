@@ -118,6 +118,7 @@ Khởi nguyên của Laravel là một dự án IoC Container cho CodeIgniter do
 
 !["Ảnh chụp màn hình của dự án CInject trên Google Code"](/assets/posts/laravel-dependency-injection-va-ioc-container/cinject.png "Ảnh chụp màn hình của dự án CInject trên Google Code"){: .center-image }
 
+
 # 3. Sử dụng IoC container trong Laravel như thế nào?
 
 ## - Cơ bản
@@ -145,7 +146,7 @@ Khi ta muốn khởi tạo một đối tượng `$car = new Car();` thì php s�
 Argument 1 passed to Car::__construct() must be an instance of Engine, none given,...
 ```
 
-Cũng dễ hiểu vì class Car phụ thuộc vào class Engine mà class này lại phụ thuộc vào class Piston. Trong Laravel, nếu chúng ta dùng `App::make` thì IoC Container trong Laravel sẽ tự đồng phân giải dependencies của class Car và giúp chúng ta khởi tạo đối tượng `$car` một cách đúng đắn.
+Cũng dễ hiểu vì class Car phụ thuộc vào class Engine mà class này lại phụ thuộc vào class Piston. Trong Laravel, nếu chúng ta dùng `App::make` thì IoC container trong Laravel sẽ tự động phân giải dependencies của class Car và giúp chúng ta khởi tạo đối tượng `$car` một cách đúng đắn.
 
 {% highlight php %}
 <?php
