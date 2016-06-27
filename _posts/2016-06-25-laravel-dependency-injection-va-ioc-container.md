@@ -108,7 +108,7 @@ $myFileLog->info('This object depend on another object');
 
 # 2. IoC Conainter là gì?
 
-Khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, làm thế nào chúng ta biết được lớp MyLog này phụ thuộc vào những lớp nào để khởi tạo nó? Việc tạo ra một instance của class MyLog rất đơn giản nếu như nó chỉ phụ thuộc trực tiếp vào một class khác. Tuy nhiên có khả năng xảy ra trường hợp phụ thuộc lồng nhau, ví dụ như class DBLogger phụ thuộc vào lớp database access nào đó. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
+Khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, làm thế nào chúng ta biết được lớp MyLog này phụ thuộc vào những lớp nào để khởi tạo nó? Việc tạo ra một instance của class MyLog rất đơn giản nếu như nó chỉ phụ thuộc trực tiếp vào một class khác. Tuy nhiên có khả năng xảy ra trường hợp phụ thuộc lồng nhau, ví dụ như `MyLog --> DBLogger --> DatabaseAccess`. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
 
 Để giải quyết điều này, người ta nghĩ ra Dependency Injection Container hay còn gọi là Inversion of Control Container (IoC ontainer). Thuật ngữ Inversion of Control mang tính tổng quát hơn Dependency Injection, từ đây về sau mình sẽ dù IoC container thay cho Dependecy Injection Container. Về bản chất thì IoC Conainter là một tấm bản đồ, hay một dịch vụ tổng đài cuộc gọi. Nó cho ta biết một lớp phụ thuộc vào những lớp class nào khác và phân giải được những class đó bằng kỹ thuật [Reflection](http://php.net/manual/en/book.reflection.php), hoặc từ danh sách đã được developer đăng ký trước.
 
