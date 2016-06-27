@@ -55,7 +55,7 @@ $myLog->info('This object depend on another object');
 Ví vụ trên là một ví dụ mang tính tượng trưng, nhưng vấn đề chính được nêu ra là class MyLog bị phụ thuộc vào class StandardLogger. Nói cách khác là class MyLog bị dính chặt vào class StandardLogger. Hiện tại thì khi chúng ta muốn chuyển sang một loại logger khác (ví dụ như FileLogger hay MongoDBLogger) chúng ta phải sửa lại hàm dựng của class MyLog.
 
 
-Để giải quyết vấn đề phụ thuộc này, chúng ta chỉ cần sửa lại hàm dựng của class MyLog nhận một tham số là logger là xong. Hay còn gọi là **decouple** hàm dựng của class MyLog với những class khác mà nó phụ thuộc. Việc này đơn giản được gọi là **Dependency Injection**. Tah-dah, đơn giản quá phải không? Cho nên có người nói DI là một cái tên 25 dollars cho một khái niệm trị giá 5 cents. Nguyên văn của [James Shore](http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html):
+Để giải quyết vấn đề phụ thuộc này, chúng ta chỉ cần sửa lại hàm dựng của class MyLog nhận một tham số là logger là được. Hay còn gọi là **decouple** hàm dựng của class MyLog với những class khác mà nó phụ thuộc. Việc này đơn giản được gọi là **Dependency Injection**. Tah-dah, đơn giản quá phải không? Cho nên có người nói DI là một cái tên 25 dollars cho một khái niệm trị giá 5 cents. Nguyên văn của [James Shore](http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html):
 
 > "Dependency Injection" is a 25-dollar term for a 5-cent concept. [...] Dependency injection means giving an object its instance variables. [...].
 
@@ -108,7 +108,7 @@ $myFileLog->info('This object depend on another object');
 
 # 2. IoC Conainter là gì?
 
-Sau khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, đó là làm thế nào chúng ta biết được lớp MyLog này phụ thuộc vào những lớp nào để khởi tạo nó? Việc này nghe có vẻ đơn giản, nhưng có khả năng xảy ra trường hợp lớp MyLog phụ thuộc vào lớp MySQLLogger, còn lớp MySQLLogger phụ thuộc vào lớp DatabaseAccess nào đó. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
+Khi áp dụng kỹ thuật DI này, thì một vấn đề khác lại nảy sinh, làm thế nào chúng ta biết được lớp MyLog này phụ thuộc vào những lớp nào để khởi tạo nó? Việc tạo ra một instance của class MyLog rất đơn giản nếu như nó chỉ phụ thuộc trực tiếp vào một class khác. Tuy nhiên có khả năng xảy ra trường hợp phụ thuộc lồng nhau, ví dụ như class DBLogger phụ thuộc vào lớp database access nào đó. Và nó gây rất nhiều khó khăn cho việc khởi tạo một object mà chúng ta cần, bởi vì danh sách các lớp phụ thuộc lồng nhau rất sâu (deeply nested class dependencies).
 
 Để giải quyết điều này, người ta nghĩ ra Dependency Injection Container hay còn gọi là Inversion of Control Container (IoC ontainer). Thuật ngữ Inversion of Control mang tính tổng quát hơn Dependency Injection, từ đây về sau mình sẽ dù IoC container thay cho Dependecy Injection Container. Về bản chất thì IoC Conainter là một tấm bản đồ, hay một dịch vụ tổng đài cuộc gọi. Nó cho ta biết một lớp phụ thuộc vào những lớp class nào khác và phân giải được những class đó bằng kỹ thuật [Reflection](http://php.net/manual/en/book.reflection.php), hoặc từ danh sách đã được developer đăng ký trước.
 
@@ -145,7 +145,7 @@ Khi ta muốn khởi tạo một đối tượng `$car = new Car();` thì php s�
 Argument 1 passed to Car::__construct() must be an instance of Engine, none given,...
 ```
 
-Cũng dễ hiểu vì class Car phụ thuộc vào class Engine mà class này lại phụ thuộc vào class Pison. Nhưng trong Laravel, nếu chúng ta dùng `App::make` thì IoC Container trong Laravel sẽ tự đồng phân giải dependencies của class Car và giúp chúng ta khởi tạo đối tượng `$car` một cách đúng đắn.
+Cũng dễ hiểu vì class Car phụ thuộc vào class Engine mà class này lại phụ thuộc vào class Piston. Trong Laravel, nếu chúng ta dùng `App::make` thì IoC Container trong Laravel sẽ tự đồng phân giải dependencies của class Car và giúp chúng ta khởi tạo đối tượng `$car` một cách đúng đắn.
 
 {% highlight php %}
 <?php
@@ -185,7 +185,7 @@ MyLog {#212 ▼
 
 ## - Contextual binding
 
-Đôi khi 2 class khác nhau sử dụng chung 1 interface, nhưng chúng cần 2 implementations khác nhau thì phải làm sao? Giả sử ta có thêm một class ExceptionLog, và chúng ta muốn nó ghi xuống file thay vì in ra màn starndard ouput như class MyLog.
+Đôi khi 2 class khác nhau sử dụng chung 1 interface, nhưng chúng cần 2 implementations khác nhau thì phải làm sao? Giả sử ta có thêm một class ExceptionLog, và chúng ta muốn nó ghi xuống file thay vì in ra standard ouput như class MyLog.
 
 {% highlight php %}
 <?php
@@ -306,7 +306,7 @@ class MovieController extends Controller {
 
 # 4. Kết luận
 
-Dependency Injection và IoC container là những khái niệm rất đơn giản. Tuy nhiên nếu không tìm hiểu nó thì quả thực chúng ta không biết nó dùng để giải quyết vấn đề gì. Có thể nói, IoC container là trái tim của Laravel và cũng là điểm khác biệt lớn những giữa Laravel và các PHP frameworks khác. Và sau khi hiểu rõ cơ chế hoạt động của IoC container, chúng ta có thể tạo ra những ứng dụng linh hoạt và dễ test hơn cũng như hiểu thêm một chút về cách làm việc của Laravel mà cụ thể là Laravel container.
+Dependency Injection và IoC container là những khái niệm rất đơn giản. Tuy nhiên chúng ta cần tìm hiểu để biết rõ DI và IoC được ứng dụng trong trường hợp nào. Có thể nói, IoC container là trái tim của Laravel và cũng là điểm khác biệt lớn những giữa Laravel và các PHP frameworks khác. Và sau khi hiểu rõ cơ chế hoạt động của IoC container, chúng ta có thể tạo ra những ứng dụng linh hoạt và dễ test hơn cũng như hiểu thêm một chút về cách làm việc của Laravel mà cụ thể là Laravel container.
 
 
 # Tham khảo 
