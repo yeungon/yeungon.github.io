@@ -36,7 +36,7 @@ Tạm dịch: Nguyên tắc đóng/mở
 
 > Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
 
-Nguyên tắc này có thể được hiểu rằng: các class hoặc hàm nên được thiết kể để mở rộng, nhưng đóng lại để tránh sự thay đổi trực tiếp mã nguồn. Điều này có nghĩa là hệ thống nên được thiết để hỗ trợ các lập trình viên sau này có extend các class có sẵn để cung cấp thêm chức năng thay vì chỉnh sửa trên mã nguồn tồn tại sẵn trong hệ thống.v
+Nguyên tắc này có thể được hiểu rằng: các class hoặc hàm nên được thiết kể để mở rộng, nhưng đóng lại để tránh sự thay đổi trực tiếp mã nguồn. Điều này có nghĩa là hệ thống nên được thiết để hỗ trợ các lập trình viên sau này có extend các class có sẵn để cung cấp thêm chức năng thay vì chỉnh sửa trên mã nguồn tồn tại sẵn trong hệ thống.
 
 Việc này có lợi là những lập trình viên sau này cùng làm việc trên một code base không cần phải viết test lại cho code có sẵn và hạn chế tối đa *side effects*. Bởi vì đối với những code base lớn thì một thay đổi nhỏ cũng có thể gây ra hậu quả lớn, kiểu hiệu ứng domino.
 
@@ -107,7 +107,7 @@ Tạm dịch: Nguyên tắc hoán đổi Liskov
 
 Nguyên tắc này nghe có vẻ phức tạp, nhưng thực chất có thể diễn ý đơn giản lại như sau: Nếu một class có sử dụng một implemtation của một interface, thì nó phải được thay thế dễ dàng bởi các implementation của interface đó mà không cần sửa gì thêm.
 
-Ví dụ này được lấy lại từ bài viết trước. Chúng ta có thể thấy rằng StandardLogger nad FileLogger cùng implement một interface và chúng có thể thay đổi dễ dàng với nhau mà không cần chỉnh sửa mã nguồn của MyLog.
+Ví dụ này được lấy lại từ bài viết trước. Chúng ta có thể thấy rằng `StandardLogger` và `FileLogger` cùng implement một interface và chúng có thể thay đổi dễ dàng với nhau mà không cần chỉnh sửa mã nguồn của `MyLog`.
  
 {% highlight php %}
 <?php
@@ -161,9 +161,9 @@ Tạm dịch: Nguyên tắc tách rời giao diện (lập trình)
 
 > The interface-segregation principle (ISP) states that no client should be forced to depend on methods it does not use.
 
-Nguyên tắc này phát biểu rằng implementation của một interface không nên bị phụ thuộc vào những methods mà nó không dùng. Điều này có nghĩa là các interface phải được sắp xếp và phân chia hợp lý. Thay vì có một **fat** interface chứa tất cả các methods cần được thi công thì nó nên được chia nhỏ ra mà class nào implement nó cũng không có method **thừa**.
+Nguyên tắc này phát biểu rằng implementation của một interface không nên bị phụ thuộc vào những methods mà nó không dùng. Điều này có nghĩa là các interface phải được sắp xếp và phân chia hợp lý. Thay vì có một **FAT** interface chứa tất cả các methods cần được thi công thì nó nên được chia nhỏ ra mà class nào implement nó cũng không có method **thừa**.
 
-Trong cuốn `Laravel: From Apprentice To Artisan`, Taylor Otwell có đưa ví dụ về SessionHandlerInterface như sau:
+Trong cuốn *Laravel: From Apprentice To Artisan*, Taylor Otwell có đưa ví dụ về `SessionHandlerInterface` như sau:
 
  
 {% highlight php %}
@@ -179,7 +179,7 @@ interface SessionHandlerInterface
 }
 {% endhighlight %}
 
-Nhìn interface SessionHandlerInterface ở trên có vẻ không có vấn đề gì, nhưng thực ra nó ép conrete class sử dụng khá nhiều method thừa ví dụ như `open`, `close`, `gc`. Ví dụ chúng ta sử dụng memcached để lưu session thì nó tự động expire dữ liệu mà chúng ta không cần implement hàm `gc` (garbage collector). Để giải quyết vấn đề này, SessionHandlerInterface nên được chia nhỏ ra thành nhiều interface nhỏ hơn và tập trung vào chức năng không thể tách rời. Ví dụ:
+Nhìn interface SessionHandlerInterface ở trên có vẻ không có vấn đề gì, nhưng thực ra nó ép conrete class sử dụng khá nhiều method thừa ví dụ như `open`, `close`, `gc`. Ví dụ chúng ta sử dụng memcached để lưu session thì nó tự động expire dữ liệu mà chúng ta không cần implement hàm `gc` (garbage collector). Để giải quyết vấn đề này, `SessionHandlerInterface` nên được chia nhỏ ra thành nhiều interface nhỏ hơn và tập trung vào chức năng không thể tách rời. Ví dụ:
 
 {% highlight php %}
 <?php
@@ -224,7 +224,7 @@ class Authenticator
 }
 {% endhighlight %}
 
-Thay vào đó cả hai nên được inject vào `Authenticator`. Điều này có lợi là chúng ta có thể dễ dàng thay thế MySQL bằng NoSQL (hay làm những việc khác như connect với Facebook, Google), và thay thế `md5` bằng một hàm băm hay mã hoá khác an toàn hơn.
+Thay vào đó cả hai nên được inject vào `Authenticator`. Điều này có lợi là chúng ta có thể dễ dàng thay thế `MySQL` bằng `NoSQL` (hay làm những việc khác như connect với Facebook, Google), và thay thế `md5` bằng một hàm băm hay mã hoá khác an toàn hơn.
 
 {% highlight php %}
 <?php
