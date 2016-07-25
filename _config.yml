@@ -5,7 +5,7 @@ permalink: /:year/:month/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md","package.json", "Gruntfile.js", "node_modules"]
 highlighter: rouge
-gems: [jekyll-paginate, jekyll-gist]
+gems: [jekyll-paginate, jekyll-gist, jemoji]
 paginate: 50
 markdown: kramdown
 # Themes are encouraged to use these universal variables 

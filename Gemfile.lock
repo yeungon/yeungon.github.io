@@ -131,6 +131,7 @@ DEPENDENCIES
   github-pages
   jekyll
   jekyll-paginate
+  jemoji
   pygments.rb
 
 BUNDLED WITH
