@@ -163,7 +163,7 @@ Tạm dịch: Nguyên tắc tách rời giao diện (lập trình)
 
 Nguyên tắc này phát biểu rằng implementation của một interface không nên bị phụ thuộc vào những methods mà nó không dùng. Điều này có nghĩa là các interface phải được sắp xếp và phân chia hợp lý. Thay vì có một **FAT** interface chứa tất cả các methods cần được thi công thì nó nên được chia nhỏ ra mà class nào implement nó cũng không có method **thừa**.
 
-Trong cuốn *Laravel: From Apprentice To Artisan*, Taylor Otwell có đưa ví dụ về `SessionHandlerInterface` như sau:
+Trong cuốn **Laravel: From Apprentice To Artisan**, Taylor Otwell có đưa ví dụ về `SessionHandlerInterface` như sau:
 
  
 {% highlight php %}
@@ -243,7 +243,7 @@ class Authenticator
 
 # Kết luận
 
-Có thể nói, Nguyên tắc SOLID giúp chúng ta xây dựng những hệ thống lơn, dễ mở rộng và bảo trì hơn. Nhưng mà có thể thấy, chúng ta phải trừu tượng hoá ứng dụng một chúng, sử dụng nhiều interface hơn, gõ phím nhiều hơn một chút. Một số người cho rằng: **Too much Java**. Cái này đúng nếu như code base của chúng ta nhỏ và không bao giờ thay đổi. Nhưng thực tế, chẳng ai mong muốn ứng dụng/ business mình không phát triển cả. Một lần nữa có lẽ nó là `nice problem to have`. Các nguyên tắc này không mới, nhưng mình tin rằng nó mang lại khá nhiều lý luận cũng như công cụ để xây dựng các dụng lớn và dễ bảo trì nâng cấp cho mọi lập trình viên (trừ mấy tay chơi pure functional programming ra :grin:).
+Có thể nói, Nguyên tắc SOLID giúp chúng ta xây dựng những hệ thống lơn, dễ mở rộng và bảo trì hơn. Nhưng mà có thể thấy, chúng ta phải trừu tượng hoá ứng dụng một chúng, sử dụng nhiều interface hơn, gõ phím nhiều hơn một chút. Một số người cho rằng: **Too much Java**. Cái này đúng nếu như code base của chúng ta nhỏ và không bao giờ thay đổi. Nhưng thực tế, chẳng ai mong muốn ứng dụng/ business mình không phát triển cả. Một lần nữa có lẽ nó là **nice problem to have**. Các nguyên tắc này không mới, nhưng mình tin rằng nó mang lại khá nhiều lý luận cũng như công cụ để xây dựng các dụng lớn và dễ bảo trì nâng cấp cho mọi lập trình viên (trừ mấy tay chơi pure functional programming ra :grin:).
 
 # References
 
