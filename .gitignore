@@ -1,5 +1,6 @@
 _site
 node_modules
+vendor
 .sass-cache
 .c9
 .DS_Store
