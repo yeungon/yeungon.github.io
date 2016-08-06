@@ -16,7 +16,7 @@ github_username:  hungnq1989
 
 # Comment Service
 #  choose one and un-comment the line to active it
-disqus_shortname: butchiso89
+disqus_shortname: butchiso
 
 permalink: /:year/:month/:title.html
 gems:
