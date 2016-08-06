@@ -1,0 +1,329 @@
+curl -XPUT "http://localhost:9200/business/_mapping" -d '
+{
+    "mappings" : {
+        "restaurant": {
+            "type" : "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "location": {
+                    "type"          : "geo_point",
+                    "geohash"       : true,
+                    "geohash_prefix": true
+                },
+                "address" : {
+                    "type" : "string"
+                }
+            }
+        }
+    }
+}'
+curl -XGET "http://localhost:9200/business/_mapping"
+
+curl -XPOST "http://localhost:9200/business/restaurant/_search" -d'
+{
+    "aggregations" : {
+        "conference-hashes" : {
+            "terms" : {
+                "field" : "restaurant.location.geohash"
+            }
+        }
+    }
+}'
+curl -XGET 'http://127.0.0.1:9200/business/restaurant?pretty=1' 
+curl -XGET 'http://localhost:9200/business/_mapping/restaurant'
+
+curl -XGET 'localhost:9200/business/restaurant/_search' -d '
+{
+    "query" : {
+        "match_all" : {}
+    }
+}'
+
+curl -XDELETE 'http://localhost:9200/business/'
+
+curl -X POST "http://localhost:9200/business/restaurant" -d '{ 
+    "name" : "Beafsteak Nam Sơn",
+    "location" : {
+        "lat"     : 10.7753650,
+        "lon"     : 106.6909520,
+        "geohash" : "w3gv7dv8xfep"
+    },
+    "address": "200 Bis Nguyễn Thị Minh Khai, P. 6, Quận 3"
+}'
+{"ok":true,"_index":"business","_type":"restaurant","_id":"lu98UFOoSKCXTTJ3XP1bmw","_version":1}
+
+curl -XGET 'http://localhost:9200/business/restaurant/lu98UFOoSKCXTTJ3XP1bmw'
+
+
+curl -XPOST "http://localhost:9200/business/restaurant" -d '{ 
+    "name": "Đo Đo Quán - Món Quảng",
+    "location": {
+        "lat" : 10.768050,
+        "lon" : 106.688704,
+        "geohash": "w3gv7b227jbp"
+    },
+    "address": "10/14 Lương Hữu Khánh, P. Phạm Ngũ Lão, Quận 1, TP. HCM" 
+}'
+{"ok":true,"_index":"business","_type":"restaurant","_id":"TCSnoHLwRHqFcL35U3Dw6Q","_version":1}
+
+curl -XPOST "http://localhost:9200/business/restaurant" -d '{ 
+    "name": "Chè Hà Ký",
+    "location": {
+        "lat" : "10.754105",
+        "lon" : "106.658514",
+        "geohash": "w3gv5jdr5qxb"
+    },
+    "address": "138 Châu Văn Liêm, P. 11, Quận 5, TP. HCM" 
+}'
+
+curl -XPOST "http://localhost:9200/business/restaurant" -d '{ 
+    "name": "Cơm Gà Đông Nguyên",
+    "location": {
+        "lat" : "10.755465",
+        "lon" : "106.652302",
+        "geohash": "w3gv5j4tmxxu"
+    },
+    "address": "89-91 Châu Văn Liêm, P. 14, Quận 5, TP. HCM" 
+}'
+{"ok":true,"_index":"business","_type":"restaurant","_id":"2Khtq9BxSvucZxB-YBoPKQ","_version":1}
+
+
+curl -XPOST "http://localhost:9200/business/restaurant" -d '{ 
+    "name": "Nhà Hàng Sân Vườn Bên Sông",
+    "location": {
+        "lat" : "10.831478",
+        "lon" : "106.724668",
+        "geohash": "w3gvsef9bvzc"
+    },
+    "address": "7/3 Kha Vạn Cân, P. Hiệp Bình Chánh, Quận Thủ Đức"
+}'
+
+curl -XPOST "http://localhost:9200/business/restaurant" -d '{ 
+    "name": "Lẩu Dê Bình Điền",
+    "location": {
+        "lat" : "10.869835",
+        "lon" : "106.763260",
+        "geohash": "w3gvv6y9kk0e"
+    },
+    "address": "1296C Kha Vạn Cân, Quận Thủ Đức"
+}'
+
+curl -XPOST "http://localhost:9200/business/restaurant" -d '{ 
+    "name": "Nhà hàng Ngọc Sương Bến Thuyền",
+    "location": {
+        "lat" : "10.792469892268517",
+        "lon" : "10.792469892268517"
+    },
+    "address": "11 Nguyễn Văn Trỗi, phường 15, Phú Nhuận"
+}'
+{"_index":"business","_type":"restaurant","_id":"FD_6g-b2TaaP3M5-cAGjOw","_version":1,"created":true}
+
+curl -XGET 'http://localhost:9200/business/restaurant/FD_6g-b2TaaP3M5-cAGjOw'
+
+curl -XGET "http://localhost:9200/business/restaurant/_search " -d'
+{
+    "filtered" : {
+        "query" : {
+            "match_all" : {}
+        },
+        "filter" : {
+            "geo_distance" : {
+                "distance" : "12km",
+                "location" : "drm3btev3e86"
+            }
+        }
+    }
+}'
+
+curl -XGET 'localhost:9200/business/restaurant/_search?size=50&pretty=1' -d '
+{
+    "size": 3,
+    "query": {
+        "match": {"name": "Lẩu Dê Bình Điền"}
+    }
+}'
+
+"filter" : {
+        "geo_distance" : {
+            "location" : {
+                "lat" : "10.776945451753402",
+                "lon" : "106.69494867324829"
+            }, 
+            "distance": "2km",
+            "distance_type": "arc"
+        }
+    }
+curl -XGET 'localhost:9200/business/restaurant/_search?size=50&pretty=1' -d '
+{
+    "query": {
+        "fuzzy_like_this" : {
+            "fields" : ["address", "name"],
+            "like_text" : "De Thu Duc",
+            "max_query_terms" : 12
+        }
+    }
+}'
+
+curl -XGET 'localhost:9200/business/restaurant/_search?size=50&pretty=1' -d '
+{
+    "query": {
+         "bool" : {
+        "must" : {
+            "term" : { "address" : "kimchy" }
+        },
+        "must_not" : {
+            "range" : {
+                "age" : { "from" : 10, "to" : 20 }
+            }
+        },
+        "minimum_should_match" : 1,
+        "boost" : 1.0
+    }
+    }
+}'
+
+
+curl -XPOST "http://localhost:9200/business/restaurant/_search?pretty=1" -d'
+{
+    "aggs" : {
+        "rings_around_independence_palace" : {
+            "geo_distance" : {
+                "field" : "location",
+                "origin" : "10.776945451753402, 106.69494867324829",
+                "unit" : "km", 
+                "ranges" : [
+                    { "from" : 5, "to" : 10 }
+                ]
+            }
+        }
+    }
+}'
+
+
+curl -XGET 'localhost:9200/businesses/business/_search?size=50&pretty=1' -d '
+{
+    "query": {
+         "multi_match": {
+            "query": "Beauty Tampere",
+            "type" : "cross_fields",
+            "fields": [ "business_name", "category_name", "address", "name", "postcode", "city","country", "phone" ]
+        }
+    }
+}'
+curl -XGET 'localhost:9200/businesses/business/_search?size=50&pretty=1' -d '
+{
+    "query": {
+        "fuzzy_like_this" : {
+
+            "like_text" : "HiusAkatemia",
+            "min_term_freq" : 1,
+            "max_query_terms" : 12
+        }
+    }
+}'
+
+curl -XGET 'http://localhost:9200/businesses/business/88'
+
+
+ $data = [];
+            $keyword = $q . ' ' . $location;
+            $params['index'] = 'businesses';
+            $params['type']  = 'business';
+            $params['size']  = Config::get('view.perPage');
+            $params['body']['query']['multi_match']['query'] = $keyword;
+            $params['body']['query']['multi_match']['type']  = "cross_fields";
+            $params['body']['query']['multi_match']['fields'] = [
+                "business_name",
+                "category_name",
+                "address",
+                "name",
+                "postcode",
+                "city",
+                "country",
+                "phone"
+            ];
+
+curl -XGET 'localhost:9200/businesses/business/_search?size=50&pretty=1&explain' -d '
+{
+ "query" : {
+  "filtered" : {
+    "query": {
+         "bool": {
+            "should": [
+                {
+                "match" : { "business_name" : "rest"}
+                },                  
+                {
+                "match" : { "category_name" : "rest"}
+                },                  
+                {
+                "match" : { "name" : "rest"}
+                },
+                {
+                "match" : { "description" : "rest"}
+                }
+            ]
+        }
+    },
+    "filter" : {
+        "exists" : { "field" : "business_name" }
+    }
+   }
+   }
+}'
+
+curl -XGET 'localhost:9200/businesses/business/_search?pretty=1' -d '
+{
+ "query" : {
+  "filtered" : {
+    "query": {
+         "bool": {
+            "should": [
+                {
+                "match" : { "business_name" : "hair"}
+                },                  
+                {
+                "match" : { "category_name" : "hair"}
+                },                  
+                {
+                "match" : { "name" : "hair"}
+                },
+                {
+                "match" : { "description" : "hair"}
+                }
+            ]
+        }
+    },
+    "filter" : {
+        "exists" : { "field" : "business_name" }
+    }
+   }
+   }
+}'
+
+            $params['body']['query']['bool']['should'][]['match']['name']          = $q;
+            $params['body']['query']['bool']['should'][]['match']['business_name'] = $q;
+            $params['body']['query']['bool']['should'][]['match']['category_name'] = $q;
+            $params['body']['query']['bool']['should'][]['match']['description']   = $q;
+            if(!empty($location)) {
+                $params['body']['query']['bool']['should'][]['match']['city'] = $location;
+                $params['body']['query']['bool']['should'][]['match']['country'] = $location;
+            }
+curl -XGET 'http://127.0.0.1:9200/businesses/business/_search?pretty=1'  -d '
+{
+   "query" : {
+      "filtered" : {
+         "filter" : {
+            "exists" : {
+               "field" : "business_name"
+            }
+         },
+         "query" : {
+            "match_all" : {}
+         }
+      }
+   }
+}
+'

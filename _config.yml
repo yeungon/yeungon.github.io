@@ -1,0 +1,36 @@
+# Site settings
+title: Bút Chì Số
+url: "http://laobubu.github.io"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
+baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
+timezone: Europe/Helsinki
+description: >
+  One or more sentences introducing this blog.
+
+# Your information
+email: hungnq1989@gmail.com
+author: Hung Neo
+avatar: "//www.gravatar.com/avatar/4a44cc577eaca63e8eb110932f15bc0a?d=mm&s=135"
+profile: Full stack developer.
+twitter_username: hungnq1989
+github_username:  hungnq1989
+
+# Comment Service
+#  choose one and un-comment the line to active it
+disqus_shortname: butchiso89
+
+permalink: /:year/:month/:title.html
+gems:
+ - jekyll-paginate
+ - jekyll-gist
+ - jemoji
+
+# Build settings
+paginate: 10
+paginate_path: "page:num"
+
+highlighter: rouge
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
