@@ -20,9 +20,9 @@ $on-laptop:        800px;
 $color-link: #036;
 $color-link-hover: #069;
 
-$header-bg: #607D8B;
-$header-bg-hover: #78909C;
-$header-link: #CFD8DC;
+$header-bg: #39424e;
+$header-bg-hover: #2ec866;
+$header-link: #FFF;
 $header-fg: #FFF;
 
 @mixin media-query($device) {
@@ -35,8 +35,8 @@ $header-fg: #FFF;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting",
-        "easybook"
+    "base",
+    "layout",
+    "syntax-highlighting",
+    "easybook"
 ;
