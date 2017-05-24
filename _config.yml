@@ -1,22 +1,22 @@
 # Site settings
 title: Bút Chì Số
-url: "http://butchiso.com"
+url: "http://vuongnguyen.net"
 baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
-timezone: Europe/Helsinki
+timezone: Auckland
 description: >
-  Professional keyboard masher and screen watcher | Web Developer.
+   | Lynda on the go.
 
 # Your information
-email: hungnq1989@gmail.com
-author: Hung Neo
-avatar: "//www.gravatar.com/avatar/4a44cc577eaca63e8eb110932f15bc0a?d=mm&s=135"
-profile: Full stack developer.
-twitter_username: hungnq1989
-github_username:  hungnq1989
+email: 
+author: Vuong Nguyen
+avatar: ""
+profile: Lynda guy.
+twitter_username: 
+github_username:  yeungon
 
 # Comment Service
 #  choose one and un-comment the line to active it
-disqus_shortname: butchiso
+disqus_shortname: 
 
 permalink: /:year/:month/:title.html
 gems:
