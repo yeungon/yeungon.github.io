@@ -11,8 +11,9 @@ comments: true
 ## Hàm sau xử lý tiếng Việt có dấu thành không dấu.
 
 
-function khongdau($str) {
-
+ 
+     function khongdau($str) {
+     
      $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
 
      $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
