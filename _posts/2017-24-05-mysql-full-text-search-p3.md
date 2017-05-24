@@ -2,7 +2,7 @@
 layout: post
 title: "Tạo nhanh blog jekyll với github"
 date: 2017-05-24 8:00 PM
-categories: [database, mysql, full-text-search, vi]
+categories: [jekyll]
 author: yeungon
 tags : [jekyll, github]
 comments: true
