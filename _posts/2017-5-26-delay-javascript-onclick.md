@@ -11,7 +11,7 @@ comments: true
 
 
 ### code 1
-<script>
+
 function debounce(func, wait) {
 var timeout;
 return function () {
@@ -23,13 +23,13 @@ clearTimeout(timeout);
 timeout = setTimeout(later, wait);
 }
 }
-</script>
+
 //function này giống cái trên nhé, param function này bạn truyền tên hàm này vào nhé
 
 ### code 2 
 
 //http://stackoverflow.com/questions/7849221/ajax-delay-for-search-on-typing-in-form-field
-<script>
+
 var delayTimer;
 function doSearch(text) {
     clearTimeout(delayTimer);
@@ -37,7 +37,7 @@ function doSearch(text) {
         // Do the ajax stuff
     }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s
 }
-</script>
+
 
 ### code 3: 
 // below is the html form
@@ -45,7 +45,8 @@ function doSearch(text) {
     <p><input type="text" name="q" id="q" value="" onkeyup="doDelayedSearch(this.value)" /></p>
 </form>
 // script to handle the above html form
-<script>
+
+
 var timeout = null;
 function doDelayedSearch(val) {
   if (timeout) {  
@@ -55,7 +56,7 @@ function doDelayedSearch(val) {
      doSearch(val); //this is your existing function
   }, 2000);
 }
-</script>
+
 ### code 4: http://remysharp.com/2010/07/21/throttling-function-calls/
     
 ### code 5:
@@ -98,6 +99,7 @@ $(function() {
 $('#search').keyup($.debounce(function() {
     // Will only execute 300ms after the last keypress.
 }, 300));
-// đây: sau khi typing: https://stackoverflow.com/questions/7373023/throttle-event-calls-in-jquery
+
+đây: sau khi typing: https://stackoverflow.com/questions/7373023/throttle-event-calls-in-jquery
 //http://jsfiddle.net/josh3736/Xnnmf/
 ?>
