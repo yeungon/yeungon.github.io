@@ -9,8 +9,8 @@ comments: true
 ---
 ## Code sau dùng để delaying một action nào đó của js
 
-<?php
-//code 1
+
+### code 1
 <script>
 function debounce(func, wait) {
 var timeout;
@@ -25,7 +25,10 @@ timeout = setTimeout(later, wait);
 }
 </script>
 //function này giống cái trên nhé, param function này bạn truyền tên hàm này vào nhé
-//code 2 //http://stackoverflow.com/questions/7849221/ajax-delay-for-search-on-typing-in-form-field
+
+### code 2 
+
+//http://stackoverflow.com/questions/7849221/ajax-delay-for-search-on-typing-in-form-field
 <script>
 var delayTimer;
 function doSearch(text) {
@@ -35,7 +38,8 @@ function doSearch(text) {
     }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s
 }
 </script>
-// code 3: 
+
+### code 3: 
 // below is the html form
 <form action="" method="post" accept-charset="utf-8">
     <p><input type="text" name="q" id="q" value="" onkeyup="doDelayedSearch(this.value)" /></p>
@@ -52,9 +56,9 @@ function doDelayedSearch(val) {
   }, 2000);
 }
 </script>
-// code 4: http://remysharp.com/2010/07/21/throttling-function-calls/
+### code 4: http://remysharp.com/2010/07/21/throttling-function-calls/
     
- //code 5:
+### code 5:
     
 var i = 1;                     //  set your counter to 1
 function myLoop () {           //  create a loop function
@@ -68,7 +72,8 @@ function myLoop () {           //  create a loop function
 }
 myLoop();                      //  start the loop
 //https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
-//code  6
+
+### code  6
 function postData(){
     var id = $('#id').val();
     $.post('inc/repairs/events-backend.php',{id:id},   
