@@ -1,5 +1,14 @@
-Khi lập trình thường gặp các tiêu đề, mô tả dài quá cần phải cắt bớt, tuy nhiên dùng hàm substr() của php đôi khi bị lỗi ký tự. Nay mình chia sẻ một function cắt chuỗi hạn chế được điều đó
+---
+layout: post
+title: "Hàm cắt chuỗi"
+date: 2017-05-29 8:00 PM
+categories: [php]
+author: yeungon
+tags : [php]
+comments: true
+---
 
+Khi lập trình thường gặp các tiêu đề, mô tả dài quá cần phải cắt bớt, tuy nhiên dùng hàm substr() của php đôi khi bị lỗi ký tự. Nay mình chia sẻ một function cắt chuỗi hạn chế được điều đó
 
 public function subtext($text,$num=80) {
         if (strlen($text) <= $num) {
